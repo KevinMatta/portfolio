@@ -43,6 +43,7 @@ const navItems = [
   const header = document.querySelector('.site-header');
   const toggle = document.querySelector('[data-lang-toggle]');
   const links = document.querySelectorAll('.site-nav__link');
+  const i18nTargets = document.querySelectorAll('[data-i18n]');
 
   if (header && toggle && links.length) {
     const setLang = (lang) => {
@@ -50,6 +51,9 @@ const navItems = [
       header.dataset.lang = lang;
       links.forEach((link) => {
         link.textContent = lang === 'en' ? link.dataset.en : link.dataset.es;
+      });
+      i18nTargets.forEach((node) => {
+        node.textContent = lang === 'en' ? node.dataset.en : node.dataset.es;
       });
     };
 

@@ -1,24 +1,34 @@
 ---
 const steps = [
   {
-    title: 'Inicio de Mision',
-    body: 'Un viaje inmersivo por habilidades, experiencia y proyectos en formato scrollytelling.',
+    titleEs: 'Inicio de Mision',
+    titleEn: 'Mission Start',
+    bodyEs: 'Portfolio Astro Space: experiencia tecnica + habilidades blandas en narrativa inmersiva.',
+    bodyEn: 'Astro Space portfolio: technical expertise + soft skills in an immersive narrative.',
   },
   {
-    title: 'Estudios',
-    body: 'Formacion en informatica administrativa y bases solidas en desarrollo de software.',
+    titleEs: 'Estudios',
+    titleEn: 'Education',
+    bodyEs: 'UNAH Campus Cortes (2021 - Actualidad) y Instituto Gubernamental Primero de Mayo (2017 - 2019).',
+    bodyEn: 'UNAH Campus Cortes (2021 - Present) and Instituto Gubernamental Primero de Mayo (2017 - 2019).',
   },
   {
-    title: 'Experiencia',
-    body: 'Roles recientes en desarrollo con stacks modernos y practicas profesionales.',
+    titleEs: 'Experiencia',
+    titleEn: 'Experience',
+    bodyEs: 'Creative Information Technologies (Ene 2025 - Actualidad) y Asociacion Hondurena de Maquiladores (Nov 2023 - Nov 2024).',
+    bodyEn: 'Creative Information Technologies (Jan 2025 - Present) and Honduran Association of Maquiladores (Nov 2023 - Nov 2024).',
   },
   {
-    title: 'Skills',
-    body: 'Hard + soft skills visualizadas en barras y radar, con enfoque en impacto.',
+    titleEs: 'Skills',
+    titleEn: 'Skills',
+    bodyEs: 'Backend: C# y ASP.NET Core; Frontend: Angular y React; Mobile: Flutter/Ionic; Tools: Docker, Git.',
+    bodyEn: 'Backend: C# and ASP.NET Core; Frontend: Angular and React; Mobile: Flutter/Ionic; Tools: Docker, Git.',
   },
   {
-    title: 'Proyectos',
-    body: 'Espacio reservado para despliegues y casos clave.',
+    titleEs: 'Proyectos',
+    titleEn: 'Projects',
+    bodyEs: 'Coming Soon: 3 cards con glow y placeholders (Proyecto Confidencial / Construyendo algo increible).',
+    bodyEn: 'Coming Soon: 3 cards with glow and placeholders (Confidential Project / Building something incredible).',
   },
 ];
 ---
@@ -38,8 +48,12 @@ const steps = [
   <div class="scrolly-steps" data-scrolly-container>
     {steps.map((step, index) => (
       <article class="scrolly-step" data-step={index + 1}>
-        <h3>{step.title}</h3>
-        <p>{step.body}</p>
+        <h3 data-i18n data-es={step.titleEs} data-en={step.titleEn}>
+          {step.titleEs}
+        </h3>
+        <p data-i18n data-es={step.bodyEs} data-en={step.bodyEn}>
+          {step.bodyEs}
+        </p>
       </article>
     ))}
   </div>
