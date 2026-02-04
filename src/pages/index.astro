@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Terminal from '../components/Terminal.astro';
 import StarsBackground from '../components/StarsBackground.astro';
 import ScrollySteps from '../components/ScrollySteps.astro';
+import RadarChart from '../components/RadarChart.astro';
 ---
 
 <html lang="es">
@@ -340,15 +341,7 @@ import ScrollySteps from '../components/ScrollySteps.astro';
 							<span data-i18n data-es="Adaptabilidad" data-en="Adaptability">Adaptabilidad</span>
 							<span data-i18n data-es="Pensamiento analitico" data-en="Analytical thinking">Pensamiento analitico</span>
 						</div>
-						<div class="mt-4 rounded-xl border border-dashed border-cyan-200/30 bg-slate-900/40 p-5 text-center text-xs text-cyan-200/70">
-							<span
-								data-i18n
-								data-es="Radar chart placeholder (hexagonal) - se reemplazara con grafico real."
-								data-en="Radar chart placeholder (hexagonal) - to be replaced with the real chart."
-							>
-								Radar chart placeholder (hexagonal) - se reemplazara con grafico real.
-							</span>
-						</div>
+						<RadarChart />
 					</div>
 				</div>
 			</section>

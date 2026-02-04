@@ -1,0 +1,125 @@
+---
+const labels = [
+  'Resolucion de problemas',
+  'Autodidacta',
+  'Trabajo en equipo',
+  'Responsabilidad',
+  'Trabajo bajo presion',
+  'Comunicacion efectiva',
+  'Adaptabilidad',
+  'Pensamiento analitico',
+];
+
+const labelsEn = [
+  'Problem solving',
+  'Self-taught',
+  'Teamwork',
+  'Responsibility',
+  'Work under pressure',
+  'Effective communication',
+  'Adaptability',
+  'Analytical thinking',
+];
+
+const values = [88, 86, 90, 87, 84, 89, 85, 88];
+---
+
+<div class="radar-card" data-i18n-wrapper>
+  <canvas
+    id="soft-skills-radar"
+    aria-label="Soft skills radar chart"
+    role="img"
+    data-labels-es={JSON.stringify(labels)}
+    data-labels-en={JSON.stringify(labelsEn)}
+    data-values={JSON.stringify(values)}
+  ></canvas>
+</div>
+
+<script type="module">
+  import {
+    Chart,
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+
+  Chart.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+
+  const canvas = document.getElementById('soft-skills-radar');
+  if (canvas) {
+    const root = document.documentElement;
+    const lang = root.lang === 'en' ? 'en' : 'es';
+    const labels = lang === 'en' ? JSON.parse(canvas.dataset.labelsEn) : JSON.parse(canvas.dataset.labelsEs);
+    const values = JSON.parse(canvas.dataset.values);
+
+    const chart = new Chart(canvas, {
+      type: 'radar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: lang === 'en' ? 'Soft Skills' : 'Soft Skills',
+            data: values,
+            backgroundColor: 'rgba(125, 249, 255, 0.18)',
+            borderColor: 'rgba(125, 249, 255, 0.8)',
+            pointBackgroundColor: '#7df9ff',
+            pointBorderColor: '#0b0f1a',
+            pointHoverBackgroundColor: '#ff59c7',
+            pointHoverBorderColor: '#ffffff',
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(125, 249, 255, 0.2)' },
+            grid: { color: 'rgba(125, 249, 255, 0.12)' },
+            pointLabels: { color: 'rgba(230, 241, 255, 0.8)', font: { size: 11 } },
+            ticks: { display: false },
+            suggestedMin: 0,
+            suggestedMax: 100,
+          },
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: true },
+        },
+      },
+    });
+
+    const updateLang = () => {
+      const next = root.lang === 'en' ? 'en' : 'es';
+      chart.data.labels = next === 'en' ? JSON.parse(canvas.dataset.labelsEn) : JSON.parse(canvas.dataset.labelsEs);
+      chart.data.datasets[0].label = next === 'en' ? 'Soft Skills' : 'Soft Skills';
+      chart.update();
+    };
+
+    window.addEventListener('languagechange', updateLang);
+    window.addEventListener('astro:languagechange', updateLang);
+    document.addEventListener('languagechange', updateLang);
+  }
+</script>
+
+<style>
+  .radar-card {
+    position: relative;
+    height: 260px;
+    border-radius: 18px;
+    border: 1px solid rgba(125, 249, 255, 0.18);
+    background: rgba(10, 14, 26, 0.65);
+    padding: 18px;
+  }
+
+  .radar-card canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+</style>
+
+

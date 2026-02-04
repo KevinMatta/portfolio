@@ -55,6 +55,7 @@ const navItems = [
       i18nTargets.forEach((node) => {
         node.textContent = lang === 'en' ? node.dataset.en : node.dataset.es;
       });
+      document.dispatchEvent(new Event('languagechange'));
     };
 
     setLang('es');
