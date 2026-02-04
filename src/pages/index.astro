@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import Terminal from '../components/Terminal.astro';
+import StarsBackground from '../components/StarsBackground.astro';
+import ScrollySteps from '../components/ScrollySteps.astro';
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Kevin Mata | Astro Space</title>
+	</head>
+	<body class="min-h-screen">
+		<StarsBackground id="hero-stars" />
+		<main class="px-6 py-16 md:py-24">
+			<section class="mx-auto flex max-w-5xl flex-col gap-10">
+				<header class="space-y-4">
+					<p class="text-sm uppercase tracking-[0.4em] text-cyan-200/70">Astro Space Portfolio</p>
+					<h1 class="text-4xl font-semibold text-white md:text-6xl">
+						Kevin Mata
+						<span class="block text-lg font-medium text-cyan-200/80 md:text-2xl">
+							Software Development Specialist
+						</span>
+					</h1>
+					<p class="max-w-2xl text-base text-slate-200/80 md:text-lg">
+						Experiencia técnica y habilidades blandas en una interfaz inmersiva,
+						centrada en rendimiento y narrativa visual.
+					</p>
+				</header>
+
+				<Terminal />
+				<ScrollySteps />
+			</section>
+		</main>
+	</body>
+</html>

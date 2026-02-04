@@ -1,0 +1,145 @@
+---
+const lines = [
+  '> const name = "Kevin Mata";',
+  '> const age = 24;',
+  '> const role = "Software Development Specialist";',
+  '> const location = "Honduras";',
+  '> const email = "kevinmatta26@gmail.com";',
+  '> console.log("Ready to code.");',
+];
+---
+
+<section class="terminal-wrap">
+  <div class="terminal-card">
+    <div class="terminal-bar">
+      <div class="terminal-dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <span class="terminal-title">astro-space://about</span>
+    </div>
+    <div class="terminal-body">
+      {lines.map((line, index) => (
+        <div class="terminal-line" style={`animation-delay: ${index * 0.25}s;`}>
+          {line}
+        </div>
+      ))}
+      <div class="terminal-line terminal-cursor" style={`animation-delay: ${lines.length * 0.25}s;`}>
+        &gt;_
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .terminal-wrap {
+    width: min(720px, 92vw);
+    margin: 0 auto;
+  }
+
+  .terminal-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 0 0 24px;
+    background: rgba(10, 14, 26, 0.72);
+    border: 1px solid rgba(125, 249, 255, 0.18);
+    box-shadow:
+      0 24px 70px rgba(2, 4, 15, 0.65),
+      0 0 40px rgba(125, 249, 255, 0.12),
+      inset 0 0 40px rgba(139, 92, 255, 0.08);
+    backdrop-filter: blur(18px);
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid rgba(125, 249, 255, 0.12);
+    background: rgba(8, 10, 18, 0.8);
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  .dot-red {
+    background: #ff5f56;
+    color: #ff5f56;
+  }
+
+  .dot-yellow {
+    background: #ffbd2e;
+    color: #ffbd2e;
+  }
+
+  .dot-green {
+    background: #27c93f;
+    color: #27c93f;
+  }
+
+  .terminal-title {
+    font-size: 0.9rem;
+    color: rgba(230, 241, 255, 0.75);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .terminal-body {
+    padding: 24px 26px 8px;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #d6f7ff;
+  }
+
+  .terminal-line {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: reveal 0.6s ease forwards;
+  }
+
+  .terminal-cursor {
+    color: #7df9ff;
+    text-shadow: 0 0 12px rgba(125, 249, 255, 0.7);
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .terminal-body {
+      font-size: 0.95rem;
+      padding: 20px 18px 8px;
+    }
+
+    .terminal-title {
+      font-size: 0.75rem;
+    }
+  }
+</style>
