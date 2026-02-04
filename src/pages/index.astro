@@ -290,7 +290,11 @@ import RadarChart from '../components/RadarChart.astro';
 									<span>90%</span>
 								</div>
 								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div class="h-2 w-[90%] rounded-full bg-cyan-200/80"></div>
+									<div
+										class="skill-bar h-2 rounded-full bg-cyan-200/80"
+										data-skill-bar
+										data-value="90"
+									></div>
 								</div>
 							</div>
 							<div>
@@ -299,7 +303,11 @@ import RadarChart from '../components/RadarChart.astro';
 									<span>85%</span>
 								</div>
 								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div class="h-2 w-[85%] rounded-full bg-pink-300/70"></div>
+									<div
+										class="skill-bar h-2 rounded-full bg-pink-300/70"
+										data-skill-bar
+										data-value="85"
+									></div>
 								</div>
 							</div>
 							<div>
@@ -308,7 +316,11 @@ import RadarChart from '../components/RadarChart.astro';
 									<span>75%</span>
 								</div>
 								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div class="h-2 w-[75%] rounded-full bg-purple-300/70"></div>
+									<div
+										class="skill-bar h-2 rounded-full bg-purple-300/70"
+										data-skill-bar
+										data-value="75"
+									></div>
 								</div>
 							</div>
 							<div>
@@ -317,7 +329,11 @@ import RadarChart from '../components/RadarChart.astro';
 									<span>80%</span>
 								</div>
 								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div class="h-2 w-[80%] rounded-full bg-cyan-100/70"></div>
+									<div
+										class="skill-bar h-2 rounded-full bg-cyan-100/70"
+										data-skill-bar
+										data-value="80"
+									></div>
 								</div>
 							</div>
 						</div>
@@ -455,5 +471,25 @@ import RadarChart from '../components/RadarChart.astro';
 				</div>
 			</section>
 		</main>
+		<script type="module">
+			const bars = document.querySelectorAll('[data-skill-bar]');
+			if (bars.length) {
+				const observer = new IntersectionObserver(
+					(entries, obs) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
+							const bar = entry.target;
+							const value = bar.dataset.value;
+							bar.style.width = `${value}%`;
+							bar.classList.add('is-visible');
+							obs.unobserve(bar);
+						});
+					},
+					{ threshold: 0.5 }
+				);
+
+				bars.forEach((bar) => observer.observe(bar));
+			}
+		</script>
 	</body>
 </html>

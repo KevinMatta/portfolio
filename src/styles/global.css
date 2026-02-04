@@ -30,6 +30,15 @@ main {
   z-index: 1;
 }
 
+.skill-bar {
+  width: 0%;
+  transition: width 1.2s ease;
+}
+
+.skill-bar.is-visible {
+  box-shadow: 0 0 18px rgba(125, 249, 255, 0.35);
+}
+
 ::selection {
   background: rgba(125, 249, 255, 0.35);
   color: #0b0f1a;
