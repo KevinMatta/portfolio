@@ -1,0 +1,177 @@
+---
+const navItems = [
+  { id: 'about', es: 'About', en: 'About' },
+  { id: 'studies', es: 'Estudios', en: 'Education' },
+  { id: 'experience', es: 'Experiencia', en: 'Experience' },
+  { id: 'skills', es: 'Skills', en: 'Skills' },
+  { id: 'projects', es: 'Proyectos', en: 'Projects' },
+];
+---
+
+<header class="site-header" data-lang="es">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/" aria-label="Kevin Mata">
+      <span class="site-logo__glow">KM</span>
+      <span class="site-logo__text">Kevin Mata</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      {navItems.map((item) => (
+        <a
+          class="site-nav__link"
+          href={`#${item.id}`}
+          data-es={item.es}
+          data-en={item.en}
+        >
+          {item.es}
+        </a>
+      ))}
+    </nav>
+
+    <button class="lang-toggle" type="button" data-lang-toggle>
+      <span class="lang-toggle__label">ES</span>
+      <span class="lang-toggle__track" aria-hidden="true">
+        <span class="lang-toggle__thumb"></span>
+      </span>
+      <span class="lang-toggle__label">EN</span>
+    </button>
+  </div>
+</header>
+
+<script type="module">
+  const root = document.documentElement;
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('[data-lang-toggle]');
+  const links = document.querySelectorAll('.site-nav__link');
+
+  if (header && toggle && links.length) {
+    const setLang = (lang) => {
+      root.lang = lang;
+      header.dataset.lang = lang;
+      links.forEach((link) => {
+        link.textContent = lang === 'en' ? link.dataset.en : link.dataset.es;
+      });
+    };
+
+    setLang('es');
+
+    toggle.addEventListener('click', () => {
+      const next = header.dataset.lang === 'es' ? 'en' : 'es';
+      setLang(next);
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 12px 0;
+    background: rgba(4, 7, 15, 0.7);
+    border-bottom: 1px solid rgba(125, 249, 255, 0.12);
+    backdrop-filter: blur(18px);
+  }
+
+  .site-header__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .site-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #e6f1ff;
+  }
+
+  .site-logo__glow {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: rgba(125, 249, 255, 0.12);
+    border: 1px solid rgba(125, 249, 255, 0.35);
+    box-shadow: 0 0 18px rgba(125, 249, 255, 0.35);
+  }
+
+  .site-logo__text {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .site-nav__link {
+    text-decoration: none;
+    color: rgba(230, 241, 255, 0.72);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+
+  .site-nav__link:hover,
+  .site-nav__link:focus-visible {
+    color: #7df9ff;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 249, 255, 0.3);
+    background: rgba(8, 12, 24, 0.6);
+    color: rgba(230, 241, 255, 0.8);
+    cursor: pointer;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .lang-toggle__track {
+    position: relative;
+    width: 40px;
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(125, 249, 255, 0.18);
+  }
+
+  .lang-toggle__thumb {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: #7df9ff;
+    box-shadow: 0 0 12px rgba(125, 249, 255, 0.6);
+    transition: transform 0.2s ease;
+  }
+
+  .site-header[data-lang='en'] .lang-toggle__thumb {
+    transform: translateX(20px);
+  }
+
+  @media (max-width: 900px) {
+    .site-nav {
+      display: none;
+    }
+  }
+</style>
