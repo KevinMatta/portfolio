@@ -47,11 +47,11 @@ main {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.48;
+  opacity: 0.6;
   background-image:
-    linear-gradient(rgba(125, 249, 255, 0.28) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 249, 255, 0.24) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(rgba(125, 249, 255, 0.32) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(125, 249, 255, 0.28) 2px, transparent 2px);
+  background-size: 64px 64px;
   mask-image: radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0.85), transparent 70%);
 }
 
@@ -116,6 +116,10 @@ main {
   background: rgba(9, 13, 26, 0.7);
   box-shadow: 0 24px 60px rgba(2, 4, 16, 0.55);
   overflow: hidden;
+}
+
+.about-block {
+  max-width: 620px;
 }
 
 .skills-toggle {
