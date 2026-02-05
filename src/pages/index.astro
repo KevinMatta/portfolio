@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Terminal from '../components/Terminal.astro';
 import StarsBackground from '../components/StarsBackground.astro';
-import ScrollySteps from '../components/ScrollySteps.astro';
+import ScrollyRoot from '../components/ScrollyRoot.jsx';
 import RadarChart from '../components/RadarChart.astro';
 ---
 
@@ -20,476 +20,542 @@ import RadarChart from '../components/RadarChart.astro';
 		<StarsBackground id="hero-stars" />
 		<Header />
 		<main class="px-6 py-16 md:py-24">
-			<section class="mx-auto flex max-w-5xl flex-col gap-10" id="about">
-				<header class="space-y-4">
-					<p
-						class="text-sm uppercase tracking-[0.4em] text-cyan-200/70"
-						data-i18n
-						data-es="Astro Space Portfolio"
-						data-en="Astro Space Portfolio"
-					>
-						Astro Space Portfolio
-					</p>
-					<h1 class="text-4xl font-semibold text-white md:text-6xl">
-						Kevin Mata
-						<span
-							class="block text-lg font-medium text-cyan-200/80 md:text-2xl"
-							data-i18n
-							data-es="Software Development Specialist"
-							data-en="Software Development Specialist"
-						>
-							Software Development Specialist
-						</span>
-					</h1>
-					<p
-						class="max-w-2xl text-base text-slate-200/80 md:text-lg"
-						data-i18n
-						data-es="Experiencia tecnica y habilidades blandas en una interfaz inmersiva, centrada en rendimiento y narrativa visual."
-						data-en="Technical depth and soft skills in an immersive experience focused on performance and visual storytelling."
-					>
-						Experiencia tecnica y habilidades blandas en una interfaz inmersiva, centrada en rendimiento y narrativa visual.
-					</p>
-				</header>
-
-				<Terminal />
-				<ScrollySteps />
-			</section>
-
-			<section class="mx-auto mt-24 max-w-5xl space-y-10" id="studies">
-				<header class="space-y-3">
-					<p
-						class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
-						data-i18n
-						data-es="Estudios"
-						data-en="Education"
-					>
-						Estudios
-					</p>
-					<h2
-						class="text-3xl font-semibold text-white md:text-4xl"
-						data-i18n
-						data-es="Formacion Academica"
-						data-en="Academic Background"
-					>
-						Formacion Academica
-					</h2>
-					<p
-						class="max-w-2xl text-base text-slate-200/70"
-						data-i18n
-						data-es="Base tecnica y universitaria enfocada en desarrollo de software y administracion."
-						data-en="Technical and university foundation focused on software development and operations."
-					>
-						Base tecnica y universitaria enfocada en desarrollo de software y administracion.
-					</p>
-				</header>
-				<div class="grid gap-6 md:grid-cols-2">
-					<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
-						<h3
-							class="text-xl font-semibold text-white"
-							data-i18n
-							data-es="Licenciatura en Informatica Administrativa"
-							data-en="BSc in Administrative Informatics"
-						>
-							Licenciatura en Informatica Administrativa
-						</h3>
-						<p class="mt-2 text-sm text-cyan-200/80">UNAH Campus Cortes</p>
+			<ScrollyRoot client:load>
+				<section class="mx-auto flex max-w-5xl flex-col gap-10" id="about">
+					<header class="space-y-4">
 						<p
-							class="mt-3 text-sm text-slate-200/70"
+							class="text-sm uppercase tracking-[0.4em] text-cyan-200/70"
 							data-i18n
-							data-es="2021 - Actualidad"
-							data-en="2021 - Present"
+							data-es="Astro Space Portfolio"
+							data-en="Astro Space Portfolio"
 						>
-							2021 - Actualidad
+							Astro Space Portfolio
 						</p>
-					</article>
-					<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
-						<h3
-							class="text-xl font-semibold text-white"
-							data-i18n
-							data-es="Bachillerato Tecnico Profesional en Informatica"
-							data-en="Technical High School in Informatics"
-						>
-							Bachillerato Tecnico Profesional en Informatica
-						</h3>
-						<p class="mt-2 text-sm text-cyan-200/80">Instituto Gubernamental Primero de Mayo</p>
-						<p
-							class="mt-3 text-sm text-slate-200/70"
-							data-i18n
-							data-es="2017 - 2019"
-							data-en="2017 - 2019"
-						>
-							2017 - 2019
-						</p>
-					</article>
-				</div>
-			</section>
-
-			<section class="mx-auto mt-24 max-w-5xl space-y-10" id="experience">
-				<header class="space-y-3">
-					<p
-						class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
-						data-i18n
-						data-es="Experiencia"
-						data-en="Experience"
-					>
-						Experiencia
-					</p>
-					<h2
-						class="text-3xl font-semibold text-white md:text-4xl"
-						data-i18n
-						data-es="Experiencia Laboral"
-						data-en="Work Experience"
-					>
-						Experiencia Laboral
-					</h2>
-					<p
-						class="max-w-2xl text-base text-slate-200/70"
-						data-i18n
-						data-es="Roles recientes construyendo soluciones con stacks modernos."
-						data-en="Recent roles delivering solutions with modern stacks."
-					>
-						Roles recientes construyendo soluciones con stacks modernos.
-					</p>
-				</header>
-				<div class="grid gap-6">
-					<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
-						<div class="flex flex-wrap items-center justify-between gap-3">
-							<h3 class="text-xl font-semibold text-white">Creative Information Technologies</h3>
+						<h1 class="text-4xl font-semibold text-white md:text-6xl">
+							Kevin Mata
 							<span
-								class="text-sm text-cyan-200/80"
+								class="block text-lg font-medium text-cyan-200/80 md:text-2xl"
 								data-i18n
-								data-es="Ene 2025 - Actualidad"
-								data-en="Jan 2025 - Present"
+								data-es="Software Development Specialist"
+								data-en="Software Development Specialist"
 							>
-								Ene 2025 - Actualidad
+								Software Development Specialist
 							</span>
-						</div>
+						</h1>
 						<p
-							class="mt-3 text-sm text-slate-200/70"
+							class="max-w-2xl text-base text-slate-200/80 md:text-lg"
 							data-i18n
-							data-es="Rol: Associative Software Developer"
-							data-en="Role: Associative Software Developer"
+							data-es="Experiencia tecnica y habilidades blandas en una interfaz inmersiva, centrada en rendimiento y narrativa visual."
+							data-en="Technical depth and soft skills in an immersive experience focused on performance and visual storytelling."
 						>
-							Rol: Associative Software Developer
+							Experiencia tecnica y habilidades blandas en una interfaz inmersiva, centrada en rendimiento y narrativa visual.
 						</p>
+					</header>
+
+					<div class="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+						<Terminal />
+						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
+							<p
+								class="text-xs uppercase tracking-[0.3em] text-cyan-200/70"
+								data-i18n
+								data-es="Inicio de mision"
+								data-en="Mission Start"
+							>
+								Inicio de mision
+							</p>
+							<h2
+								class="mt-3 text-2xl font-semibold text-white"
+								data-i18n
+								data-es="Carta de presentacion"
+								data-en="Cover Letter"
+							>
+								Carta de presentacion
+							</h2>
+							<p
+								class="mt-3 text-sm text-slate-200/75"
+								data-i18n
+								data-es="Soy Kevin Mata, especialista en desarrollo de software. Diseno soluciones con enfoque en rendimiento, claridad y experiencia del usuario."
+								data-en="I'm Kevin Mata, a software development specialist. I design solutions with a focus on performance, clarity, and user experience."
+							>
+								Soy Kevin Mata, especialista en desarrollo de software. Diseno soluciones con enfoque en rendimiento, claridad y experiencia del usuario.
+							</p>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Me motiva convertir ideas complejas en productos confiables, colaborando con equipos para entregar valor real."
+								data-en="I turn complex ideas into reliable products, collaborating with teams to deliver real impact."
+							>
+								Me motiva convertir ideas complejas en productos confiables, colaborando con equipos para entregar valor real.
+							</p>
+						</article>
+					</div>
+				</section>
+
+				<section class="mx-auto mt-24 max-w-5xl space-y-10" id="studies">
+					<header class="space-y-3">
 						<p
-							class="mt-2 text-sm text-slate-200/70"
+							class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
 							data-i18n
-							data-es="Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker"
-							data-en="Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker"
+							data-es="Estudios"
+							data-en="Education"
 						>
-							Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker
+							Estudios
 						</p>
-					</article>
-					<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
-						<div class="flex flex-wrap items-center justify-between gap-3">
+						<h2
+							class="text-3xl font-semibold text-white md:text-4xl"
+							data-i18n
+							data-es="Formacion Academica"
+							data-en="Academic Background"
+						>
+							Formacion Academica
+						</h2>
+						<p
+							class="max-w-2xl text-base text-slate-200/70"
+							data-i18n
+							data-es="Base tecnica y universitaria enfocada en desarrollo de software, datos y administracion."
+							data-en="Technical and university foundation focused on software development, data, and operations."
+						>
+							Base tecnica y universitaria enfocada en desarrollo de software, datos y administracion.
+						</p>
+					</header>
+					<div class="grid gap-6 md:grid-cols-2">
+						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
 							<h3
 								class="text-xl font-semibold text-white"
 								data-i18n
-								data-es="Asociacion Hondurena de Maquiladores"
-								data-en="Honduran Association of Maquiladores"
+								data-es="Licenciatura en Informatica Administrativa"
+								data-en="BSc in Administrative Informatics"
 							>
-								Asociacion Hondurena de Maquiladores
+								Licenciatura en Informatica Administrativa
 							</h3>
-							<span
-								class="text-sm text-cyan-200/80"
+							<p class="mt-2 text-sm text-cyan-200/80">UNAH Campus Cortes</p>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
 								data-i18n
-								data-es="Nov 2023 - Nov 2024"
-								data-en="Nov 2023 - Nov 2024"
+								data-es="2021 - Actualidad"
+								data-en="2021 - Present"
 							>
-								Nov 2023 - Nov 2024
-							</span>
-						</div>
-						<p
-							class="mt-3 text-sm text-slate-200/70"
-							data-i18n
-							data-es="Rol: Trainee Software Developer"
-							data-en="Role: Trainee Software Developer"
-						>
-							Rol: Trainee Software Developer
-						</p>
-						<p
-							class="mt-2 text-sm text-slate-200/70"
-							data-i18n
-							data-es="Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter"
-							data-en="Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter"
-						>
-							Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter
-						</p>
-					</article>
-				</div>
-			</section>
+								2021 - Actualidad
+							</p>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Enfoque en analisis de datos, sistemas empresariales y desarrollo web."
+								data-en="Focus on data analysis, enterprise systems, and web development."
+							>
+								Enfoque en analisis de datos, sistemas empresariales y desarrollo web.
+							</p>
+						</article>
+						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
+							<h3
+								class="text-xl font-semibold text-white"
+								data-i18n
+								data-es="Bachillerato Tecnico Profesional en Informatica"
+								data-en="Technical High School in Informatics"
+							>
+								Bachillerato Tecnico Profesional en Informatica
+							</h3>
+							<p class="mt-2 text-sm text-cyan-200/80">Instituto Gubernamental Primero de Mayo</p>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="2017 - 2019"
+								data-en="2017 - 2019"
+							>
+								2017 - 2019
+							</p>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Formacion en programacion, bases de datos y soporte tecnico."
+								data-en="Training in programming, databases, and technical support."
+							>
+								Formacion en programacion, bases de datos y soporte tecnico.
+							</p>
+						</article>
+					</div>
+				</section>
 
-			<section class="mx-auto mt-24 max-w-5xl space-y-10" id="skills">
-				<header class="space-y-3">
-					<p
-						class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
-						data-i18n
-						data-es="Skills"
-						data-en="Skills"
-					>
-						Skills
-					</p>
-					<h2
-						class="text-3xl font-semibold text-white md:text-4xl"
-						data-i18n
-						data-es="Hard + Soft Skills"
-						data-en="Hard + Soft Skills"
-					>
-						Hard + Soft Skills
-					</h2>
-					<p
-						class="max-w-2xl text-base text-slate-200/70"
-						data-i18n
-						data-es="Visualizacion de habilidades tecnicas y blandas con enfoque en impacto real."
-						data-en="Visualization of technical and soft skills focused on real-world impact."
-					>
-						Visualizacion de habilidades tecnicas y blandas con enfoque en impacto real.
-					</p>
-				</header>
-				<div class="grid gap-8 md:grid-cols-2">
-					<div class="space-y-4 rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
-						<h3
-							class="text-lg font-semibold text-white"
+				<section class="mx-auto mt-24 max-w-5xl space-y-10" id="experience">
+					<header class="space-y-3">
+						<p
+							class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
 							data-i18n
-							data-es="Hard Skills"
-							data-en="Hard Skills"
+							data-es="Experiencia"
+							data-en="Experience"
 						>
-							Hard Skills
-						</h3>
-						<div class="space-y-3 text-sm text-slate-200/70">
+							Experiencia
+						</p>
+						<h2
+							class="text-3xl font-semibold text-white md:text-4xl"
+							data-i18n
+							data-es="Experiencia Laboral"
+							data-en="Work Experience"
+						>
+							Experiencia Laboral
+						</h2>
+						<p
+							class="max-w-2xl text-base text-slate-200/70"
+							data-i18n
+							data-es="Roles recientes construyendo soluciones con stacks modernos y foco en impacto."
+							data-en="Recent roles delivering solutions with modern stacks and impact in mind."
+						>
+							Roles recientes construyendo soluciones con stacks modernos y foco en impacto.
+						</p>
+					</header>
+					<div class="grid gap-6">
+						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
+							<div class="flex flex-wrap items-center justify-between gap-3">
+								<h3 class="text-xl font-semibold text-white">Creative Information Technologies</h3>
+								<span
+									class="text-sm text-cyan-200/80"
+									data-i18n
+									data-es="Ene 2025 - Actualidad"
+									data-en="Jan 2025 - Present"
+								>
+									Ene 2025 - Actualidad
+								</span>
+							</div>
 							<p
+								class="mt-3 text-sm text-slate-200/70"
 								data-i18n
-								data-es="Backend: C#, ASP.NET Core, SQL Server, PostgreSQL"
-								data-en="Backend: C#, ASP.NET Core, SQL Server, PostgreSQL"
+								data-es="Rol: Associative Software Developer"
+								data-en="Role: Associative Software Developer"
 							>
-								Backend: C#, ASP.NET Core, SQL Server, PostgreSQL
+								Rol: Associative Software Developer
 							</p>
 							<p
+								class="mt-2 text-sm text-slate-200/70"
 								data-i18n
-								data-es="Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap"
-								data-en="Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap"
+								data-es="Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker"
+								data-en="Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker"
 							>
-								Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap
-							</p>
-							<p data-i18n data-es="Mobile: Flutter, Ionic" data-en="Mobile: Flutter, Ionic">
-								Mobile: Flutter, Ionic
+								Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker
 							</p>
 							<p
+								class="mt-3 text-sm text-slate-200/70"
 								data-i18n
-								data-es="Tools/DevOps: Docker, Git/GitHub"
-								data-en="Tools/DevOps: Docker, Git/GitHub"
+								data-es="Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores."
+								data-en="Full-stack modules, APIs, and mobile flows with containerized delivery."
 							>
-								Tools/DevOps: Docker, Git/GitHub
+								Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores.
 							</p>
+						</article>
+						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
+							<div class="flex flex-wrap items-center justify-between gap-3">
+								<h3
+									class="text-xl font-semibold text-white"
+									data-i18n
+									data-es="Asociacion Hondurena de Maquiladores"
+									data-en="Honduran Association of Maquiladores"
+								>
+									Asociacion Hondurena de Maquiladores
+								</h3>
+								<span
+									class="text-sm text-cyan-200/80"
+									data-i18n
+									data-es="Nov 2023 - Nov 2024"
+									data-en="Nov 2023 - Nov 2024"
+								>
+									Nov 2023 - Nov 2024
+								</span>
+							</div>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Rol: Trainee Software Developer"
+								data-en="Role: Trainee Software Developer"
+							>
+								Rol: Trainee Software Developer
+							</p>
+							<p
+								class="mt-2 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter"
+								data-en="Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter"
+							>
+								Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter
+							</p>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Soporte a apps internas, reportes y automatizacion de procesos clave."
+								data-en="Support for internal apps, reporting, and automation of key processes."
+							>
+								Soporte a apps internas, reportes y automatizacion de procesos clave.
+							</p>
+						</article>
+					</div>
+				</section>
+
+				<section class="mx-auto mt-24 max-w-5xl space-y-10" id="skills">
+					<header class="space-y-3">
+						<p
+							class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
+							data-i18n
+							data-es="Habilidades"
+							data-en="Skills"
+						>
+							Habilidades
+						</p>
+						<h2
+							class="text-3xl font-semibold text-white md:text-4xl"
+							data-i18n
+							data-es="Habilidades Clave"
+							data-en="Key Skills"
+						>
+							Habilidades Clave
+						</h2>
+						<p
+							class="max-w-2xl text-base text-slate-200/70"
+							data-i18n
+							data-es="Visualizacion de habilidades tecnicas y blandas con enfoque en impacto real."
+							data-en="Visualization of technical and soft skills focused on real-world impact."
+						>
+							Visualizacion de habilidades tecnicas y blandas con enfoque en impacto real.
+						</p>
+					</header>
+					<div class="skills-card" data-skill-card data-skill-view="hard">
+						<div class="skills-toggle">
+							<button class="skills-tab is-active" type="button" data-skill-tab="hard" data-i18n data-es="Hard Skills" data-en="Hard Skills">
+								Hard Skills
+							</button>
+							<button class="skills-tab" type="button" data-skill-tab="soft" data-i18n data-es="Soft Skills" data-en="Soft Skills">
+								Soft Skills
+							</button>
 						</div>
-						<div class="space-y-3 pt-4">
-							<div>
-								<div class="flex justify-between text-xs text-slate-200/70">
-									<span data-i18n data-es="Backend" data-en="Backend">Backend</span>
-									<span>90%</span>
+						<div class="skills-panel skills-panel--hard">
+							<div class="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+								<div class="space-y-3 text-sm text-slate-200/70">
+									<p data-i18n data-es="Backend: C#, ASP.NET Core" data-en="Backend: C#, ASP.NET Core">
+										Backend: C#, ASP.NET Core
+									</p>
+									<p
+										data-i18n
+										data-es="Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap"
+										data-en="Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap"
+									>
+										Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap
+									</p>
+									<p data-i18n data-es="Mobile: Flutter, Ionic" data-en="Mobile: Flutter, Ionic">
+										Mobile: Flutter, Ionic
+									</p>
+									<p data-i18n data-es="DevOps/Tools: Docker, Git/GitHub" data-en="DevOps/Tools: Docker, Git/GitHub">
+										DevOps/Tools: Docker, Git/GitHub
+									</p>
+									<p data-i18n data-es="Base de datos: SQL Server, PostgreSQL" data-en="Databases: SQL Server, PostgreSQL">
+										Base de datos: SQL Server, PostgreSQL
+									</p>
 								</div>
-								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div
-										class="skill-bar h-2 rounded-full bg-cyan-200/80"
-										data-skill-bar
-										data-value="90"
-									></div>
+								<div class="space-y-3 pt-2">
+									<div>
+										<div class="flex justify-between text-xs text-slate-200/70">
+											<span data-i18n data-es="Backend" data-en="Backend">Backend</span>
+											<span>90%</span>
+										</div>
+										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
+											<div class="skill-bar h-2 rounded-full bg-cyan-200/80" data-skill-bar data-value="90"></div>
+										</div>
+									</div>
+									<div>
+										<div class="flex justify-between text-xs text-slate-200/70">
+											<span data-i18n data-es="Frontend" data-en="Frontend">Frontend</span>
+											<span>85%</span>
+										</div>
+										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
+											<div class="skill-bar h-2 rounded-full bg-pink-300/70" data-skill-bar data-value="85"></div>
+										</div>
+									</div>
+									<div>
+										<div class="flex justify-between text-xs text-slate-200/70">
+											<span data-i18n data-es="Mobile" data-en="Mobile">Mobile</span>
+											<span>75%</span>
+										</div>
+										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
+											<div class="skill-bar h-2 rounded-full bg-purple-300/70" data-skill-bar data-value="75"></div>
+										</div>
+									</div>
+									<div>
+										<div class="flex justify-between text-xs text-slate-200/70">
+											<span data-i18n data-es="DevOps" data-en="DevOps">DevOps</span>
+											<span>80%</span>
+										</div>
+										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
+											<div class="skill-bar h-2 rounded-full bg-cyan-100/70" data-skill-bar data-value="80"></div>
+										</div>
+									</div>
+									<div>
+										<div class="flex justify-between text-xs text-slate-200/70">
+											<span data-i18n data-es="Base de datos" data-en="Databases">Base de datos</span>
+											<span>88%</span>
+										</div>
+										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
+											<div class="skill-bar h-2 rounded-full bg-emerald-200/70" data-skill-bar data-value="88"></div>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div>
-								<div class="flex justify-between text-xs text-slate-200/70">
-									<span data-i18n data-es="Frontend" data-en="Frontend">Frontend</span>
-									<span>85%</span>
+						</div>
+						<div class="skills-panel skills-panel--soft">
+							<div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+								<div class="grid gap-2 text-sm text-slate-200/70">
+									<span data-i18n data-es="Resolucion de problemas" data-en="Problem solving">Resolucion de problemas</span>
+									<span data-i18n data-es="Autodidacta" data-en="Self-taught">Autodidacta</span>
+									<span data-i18n data-es="Trabajo en equipo" data-en="Teamwork">Trabajo en equipo</span>
+									<span data-i18n data-es="Responsabilidad" data-en="Responsibility">Responsabilidad</span>
+									<span data-i18n data-es="Trabajo bajo presion" data-en="Work under pressure">Trabajo bajo presion</span>
+									<span data-i18n data-es="Comunicacion efectiva" data-en="Effective communication">Comunicacion efectiva</span>
+									<span data-i18n data-es="Adaptabilidad" data-en="Adaptability">Adaptabilidad</span>
+									<span data-i18n data-es="Pensamiento analitico" data-en="Analytical thinking">Pensamiento analitico</span>
 								</div>
-								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div
-										class="skill-bar h-2 rounded-full bg-pink-300/70"
-										data-skill-bar
-										data-value="85"
-									></div>
-								</div>
-							</div>
-							<div>
-								<div class="flex justify-between text-xs text-slate-200/70">
-									<span data-i18n data-es="Mobile" data-en="Mobile">Mobile</span>
-									<span>75%</span>
-								</div>
-								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div
-										class="skill-bar h-2 rounded-full bg-purple-300/70"
-										data-skill-bar
-										data-value="75"
-									></div>
-								</div>
-							</div>
-							<div>
-								<div class="flex justify-between text-xs text-slate-200/70">
-									<span data-i18n data-es="Tools" data-en="Tools">Tools</span>
-									<span>80%</span>
-								</div>
-								<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-									<div
-										class="skill-bar h-2 rounded-full bg-cyan-100/70"
-										data-skill-bar
-										data-value="80"
-									></div>
-								</div>
+								<RadarChart />
 							</div>
 						</div>
 					</div>
-					<div class="space-y-4 rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
-						<h3
-							class="text-lg font-semibold text-white"
-							data-i18n
-							data-es="Soft Skills"
-							data-en="Soft Skills"
-						>
-							Soft Skills
-						</h3>
-						<div class="grid gap-2 text-sm text-slate-200/70">
-							<span data-i18n data-es="Resolucion de problemas" data-en="Problem solving">Resolucion de problemas</span>
-							<span data-i18n data-es="Autodidacta" data-en="Self-taught">Autodidacta</span>
-							<span data-i18n data-es="Trabajo en equipo" data-en="Teamwork">Trabajo en equipo</span>
-							<span data-i18n data-es="Responsabilidad" data-en="Responsibility">Responsabilidad</span>
-							<span data-i18n data-es="Trabajo bajo presion" data-en="Work under pressure">Trabajo bajo presion</span>
-							<span data-i18n data-es="Comunicacion efectiva" data-en="Effective communication">Comunicacion efectiva</span>
-							<span data-i18n data-es="Adaptabilidad" data-en="Adaptability">Adaptabilidad</span>
-							<span data-i18n data-es="Pensamiento analitico" data-en="Analytical thinking">Pensamiento analitico</span>
-						</div>
-						<RadarChart />
-					</div>
-				</div>
-			</section>
+				</section>
 
-			<section class="mx-auto mt-24 max-w-5xl space-y-10" id="projects">
-				<header class="space-y-3">
-					<p
-						class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
-						data-i18n
-						data-es="Proyectos"
-						data-en="Projects"
-					>
-						Proyectos
-					</p>
-					<h2
-						class="text-3xl font-semibold text-white md:text-4xl"
-						data-i18n
-						data-es="Coming Soon"
-						data-en="Coming Soon"
-					>
-						Coming Soon
-					</h2>
-					<p
-						class="max-w-2xl text-base text-slate-200/70"
-						data-i18n
-						data-es="Proximamente: despliegues y casos clave con glow y narrativa visual."
-						data-en="Coming soon: launches and key case studies with glow and visual storytelling."
-					>
-						Proximamente: despliegues y casos clave con glow y narrativa visual.
-					</p>
-				</header>
-				<div class="grid gap-6 md:grid-cols-3">
-					<article class="group rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)] transition hover:-translate-y-2 hover:border-cyan-200/40 hover:shadow-[0_30px_70px_rgba(2,4,16,0.65)]">
+				<section class="mx-auto mt-24 max-w-5xl space-y-10" id="projects">
+					<header class="space-y-3">
 						<p
-							class="text-sm uppercase tracking-[0.25em] text-cyan-200/70"
+							class="text-xs uppercase tracking-[0.35em] text-cyan-200/70"
 							data-i18n
-							data-es="Proyecto 01"
-							data-en="Project 01"
+							data-es="Proyectos"
+							data-en="Projects"
 						>
-							Proyecto 01
+							Proyectos
 						</p>
-						<h3
-							class="mt-3 text-lg font-semibold text-white"
+						<h2
+							class="text-3xl font-semibold text-white md:text-4xl"
 							data-i18n
-							data-es="Construyendo algo increible..."
-							data-en="Building something incredible..."
+							data-es="Proyectos en orbita"
+							data-en="Projects in Orbit"
 						>
-							Construyendo algo increible...
-						</h3>
+							Proyectos en orbita
+						</h2>
 						<p
-							class="mt-3 text-sm text-slate-200/70"
+							class="max-w-2xl text-base text-slate-200/70"
 							data-i18n
-							data-es="Se libera pronto con stack moderno y foco en performance."
-							data-en="Launching soon with a modern stack and a performance-first mindset."
+							data-es="Proximamente: despliegues y casos clave con glow y narrativa visual."
+							data-en="Coming soon: launches and key case studies with glow and visual storytelling."
 						>
-							Se libera pronto con stack moderno y foco en performance.
+							Proximamente: despliegues y casos clave con glow y narrativa visual.
 						</p>
-					</article>
-					<article class="group rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)] transition hover:-translate-y-2 hover:border-cyan-200/40 hover:shadow-[0_30px_70px_rgba(2,4,16,0.65)]">
-						<p
-							class="text-sm uppercase tracking-[0.25em] text-cyan-200/70"
-							data-i18n
-							data-es="Proyecto 02"
-							data-en="Project 02"
-						>
-							Proyecto 02
-						</p>
-						<h3
-							class="mt-3 text-lg font-semibold text-white"
-							data-i18n
-							data-es="Proyecto Confidencial"
-							data-en="Confidential Project"
-						>
-							Proyecto Confidencial
-						</h3>
-						<p
-							class="mt-3 text-sm text-slate-200/70"
-							data-i18n
-							data-es="Detalles bajo NDA, impacto alto en procesos internos."
-							data-en="Details under NDA with high impact on internal operations."
-						>
-							Detalles bajo NDA, impacto alto en procesos internos.
-						</p>
-					</article>
-					<article class="group rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)] transition hover:-translate-y-2 hover:border-cyan-200/40 hover:shadow-[0_30px_70px_rgba(2,4,16,0.65)]">
-						<p
-							class="text-sm uppercase tracking-[0.25em] text-cyan-200/70"
-							data-i18n
-							data-es="Proyecto 03"
-							data-en="Project 03"
-						>
-							Proyecto 03
-						</p>
-						<h3
-							class="mt-3 text-lg font-semibold text-white"
-							data-i18n
-							data-es="Explorando nuevas orbitas"
-							data-en="Exploring new orbits"
-						>
-							Explorando nuevas orbitas
-						</h3>
-						<p
-							class="mt-3 text-sm text-slate-200/70"
-							data-i18n
-							data-es="Innovacion continua con enfoque en UX y datos."
-							data-en="Continuous innovation focused on UX and data."
-						>
-							Innovacion continua con enfoque en UX y datos.
-						</p>
-					</article>
-				</div>
-			</section>
+					</header>
+					<div class="grid gap-6 md:grid-cols-3">
+						<article class="group rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)] transition hover:-translate-y-2 hover:border-cyan-200/40 hover:shadow-[0_30px_70px_rgba(2,4,16,0.65)]">
+							<p
+								class="text-sm uppercase tracking-[0.25em] text-cyan-200/70"
+								data-i18n
+								data-es="Proyecto 01"
+								data-en="Project 01"
+							>
+								Proyecto 01
+							</p>
+							<h3
+								class="mt-3 text-lg font-semibold text-white"
+								data-i18n
+								data-es="Construyendo algo increible..."
+								data-en="Building something incredible..."
+							>
+								Construyendo algo increible...
+							</h3>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Se libera pronto con stack moderno y foco en performance."
+								data-en="Launching soon with a modern stack and a performance-first mindset."
+							>
+								Se libera pronto con stack moderno y foco en performance.
+							</p>
+						</article>
+						<article class="group rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)] transition hover:-translate-y-2 hover:border-cyan-200/40 hover:shadow-[0_30px_70px_rgba(2,4,16,0.65)]">
+							<p
+								class="text-sm uppercase tracking-[0.25em] text-cyan-200/70"
+								data-i18n
+								data-es="Proyecto 02"
+								data-en="Project 02"
+							>
+								Proyecto 02
+							</p>
+							<h3
+								class="mt-3 text-lg font-semibold text-white"
+								data-i18n
+								data-es="Proyecto Confidencial"
+								data-en="Confidential Project"
+							>
+								Proyecto Confidencial
+							</h3>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Detalles bajo NDA, impacto alto en procesos internos."
+								data-en="Details under NDA with high impact on internal operations."
+							>
+								Detalles bajo NDA, impacto alto en procesos internos.
+							</p>
+						</article>
+						<article class="group rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)] transition hover:-translate-y-2 hover:border-cyan-200/40 hover:shadow-[0_30px_70px_rgba(2,4,16,0.65)]">
+							<p
+								class="text-sm uppercase tracking-[0.25em] text-cyan-200/70"
+								data-i18n
+								data-es="Proyecto 03"
+								data-en="Project 03"
+							>
+								Proyecto 03
+							</p>
+							<h3
+								class="mt-3 text-lg font-semibold text-white"
+								data-i18n
+								data-es="Explorando nuevas orbitas"
+								data-en="Exploring new orbits"
+							>
+								Explorando nuevas orbitas
+							</h3>
+							<p
+								class="mt-3 text-sm text-slate-200/70"
+								data-i18n
+								data-es="Innovacion continua con enfoque en UX y datos."
+								data-en="Continuous innovation focused on UX and data."
+							>
+								Innovacion continua con enfoque en UX y datos.
+							</p>
+						</article>
+					</div>
+				</section>
+			</ScrollyRoot>
+
+			<script type="module">
+				const bars = document.querySelectorAll('[data-skill-bar]');
+				if (bars.length) {
+					const observer = new IntersectionObserver(
+						(entries, obs) => {
+							entries.forEach((entry) => {
+								if (!entry.isIntersecting) return;
+								const bar = entry.target;
+								const value = bar.dataset.value;
+								bar.style.width = `${value}%`;
+								bar.classList.add('is-visible');
+								obs.unobserve(bar);
+							});
+						},
+						{ threshold: 0.5 }
+					);
+
+					bars.forEach((bar) => observer.observe(bar));
+				}
+
+				const skillCard = document.querySelector('[data-skill-card]');
+				if (skillCard) {
+					const tabs = skillCard.querySelectorAll('[data-skill-tab]');
+					const setTab = (next) => {
+						skillCard.dataset.skillView = next;
+						tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.skillTab === next));
+					};
+					tabs.forEach((tab) => {
+						tab.addEventListener('click', () => setTab(tab.dataset.skillTab));
+					});
+				}
+			</script>
 		</main>
-		<script type="module">
-			const bars = document.querySelectorAll('[data-skill-bar]');
-			if (bars.length) {
-				const observer = new IntersectionObserver(
-					(entries, obs) => {
-						entries.forEach((entry) => {
-							if (!entry.isIntersecting) return;
-							const bar = entry.target;
-							const value = bar.dataset.value;
-							bar.style.width = `${value}%`;
-							bar.classList.add('is-visible');
-							obs.unobserve(bar);
-						});
-					},
-					{ threshold: 0.5 }
-				);
-
-				bars.forEach((bar) => observer.observe(bar));
-			}
-		</script>
 	</body>
 </html>

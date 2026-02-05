@@ -1,12 +1,15 @@
 ---
 const lines = [
-  '> const name = "Kevin Mata";',
-  '> const age = 24;',
-  '> const role = "Software Development Specialist";',
-  '> const location = "Honduras";',
-  '> const email = "kevinmatta26@gmail.com";',
-  '> console.log("Ready to code.");',
+  { es: '> whoami', en: '> whoami' },
+  { es: '> echo "Kevin Mata"', en: '> echo "Kevin Mata"' },
+  { es: '> echo "Edad: 24"', en: '> echo "Age: 24"' },
+  { es: '> echo "Rol: Software Development Specialist"', en: '> echo "Role: Software Development Specialist"' },
+  { es: '> echo "Ubicacion: Honduras"', en: '> echo "Location: Honduras"' },
+  { es: '> echo "Email: kevinmatta26@gmail.com"', en: '> echo "Email: kevinmatta26@gmail.com"' },
 ];
+
+const typingEs = ['ls -la', 'cat mission.txt', 'echo "Listo para codear"'];
+const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
 ---
 
 <section class="terminal-wrap">
@@ -21,16 +24,92 @@ const lines = [
     </div>
     <div class="terminal-body">
       {lines.map((line, index) => (
-        <div class="terminal-line" style={`animation-delay: ${index * 0.25}s;`}>
-          {line}
+        <div
+          class="terminal-line"
+          data-i18n
+          data-es={line.es}
+          data-en={line.en}
+          style={`animation-delay: ${index * 0.25}s;`}
+        >
+          {line.es}
         </div>
       ))}
       <div class="terminal-line terminal-cursor" style={`animation-delay: ${lines.length * 0.25}s;`}>
-        &gt;_
+        <span class="terminal-prompt">&gt;</span>
+        <span
+          class="terminal-typing"
+          data-commands-es={JSON.stringify(typingEs)}
+          data-commands-en={JSON.stringify(typingEn)}
+          data-start-delay={`${lines.length * 250 + 600}`}
+        ></span>
+        <span class="terminal-blink">_</span>
       </div>
     </div>
   </div>
 </section>
+
+<script type="module">
+  const root = document.documentElement;
+  const typingNode = document.querySelector('.terminal-typing');
+
+  if (typingNode) {
+    let timers = [];
+    const clearTimers = () => {
+      timers.forEach((timer) => clearTimeout(timer));
+      timers = [];
+    };
+
+    const getCommands = () => {
+      const isEn = root.lang === 'en';
+      const source = isEn ? typingNode.dataset.commandsEn : typingNode.dataset.commandsEs;
+      return source ? JSON.parse(source) : [];
+    };
+
+    const typeCommands = () => {
+      clearTimers();
+      typingNode.textContent = '';
+      const commands = getCommands();
+      const startDelay = Number(typingNode.dataset.startDelay || 0);
+      let commandIndex = 0;
+
+      const loop = () => {
+        const command = commands[commandIndex] || '';
+        let charIndex = 0;
+
+        const typeNext = () => {
+          if (charIndex <= command.length) {
+            typingNode.textContent = command.slice(0, charIndex);
+            charIndex += 1;
+            timers.push(setTimeout(typeNext, 60));
+          } else {
+            timers.push(
+              setTimeout(() => {
+                const erase = () => {
+                  if (charIndex >= 0) {
+                    typingNode.textContent = command.slice(0, charIndex);
+                    charIndex -= 1;
+                    timers.push(setTimeout(erase, 30));
+                  } else {
+                    commandIndex = (commandIndex + 1) % commands.length;
+                    timers.push(setTimeout(loop, 260));
+                  }
+                };
+                erase();
+              }, 1200)
+            );
+          }
+        };
+
+        typeNext();
+      };
+
+      timers.push(setTimeout(loop, startDelay));
+    };
+
+    typeCommands();
+    document.addEventListener('languagechange', typeCommands);
+  }
+</script>
 
 <style>
   .terminal-wrap {
@@ -113,6 +192,17 @@ const lines = [
   .terminal-cursor {
     color: #7df9ff;
     text-shadow: 0 0 12px rgba(125, 249, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .terminal-typing {
+    min-width: 140px;
+  }
+
+  .terminal-blink {
+    animation: blink 1s steps(2, start) infinite;
   }
 
   @keyframes reveal {
@@ -129,6 +219,17 @@ const lines = [
     }
     50% {
       transform: translateY(-8px);
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    40% {
+      opacity: 1;
+    }
+    60%,
+    100% {
+      opacity: 0;
     }
   }
 

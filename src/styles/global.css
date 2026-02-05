@@ -30,6 +30,92 @@ main {
   z-index: 1;
 }
 
+.scrolly-root {
+  position: relative;
+}
+
+.scrolly-section {
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.scrolly-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(125, 249, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 249, 255, 0.12) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0.85), transparent 70%);
+}
+
+.skills-card {
+  position: relative;
+  min-height: 420px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(125, 249, 255, 0.14);
+  background: rgba(9, 13, 26, 0.7);
+  box-shadow: 0 24px 60px rgba(2, 4, 16, 0.55);
+}
+
+.skills-toggle {
+  display: inline-flex;
+  gap: 12px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(8, 12, 24, 0.6);
+  border: 1px solid rgba(125, 249, 255, 0.25);
+}
+
+.skills-tab {
+  border: none;
+  background: transparent;
+  color: rgba(230, 241, 255, 0.7);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-tab.is-active {
+  color: #0b0f1a;
+  background: rgba(125, 249, 255, 0.9);
+  box-shadow: 0 0 16px rgba(125, 249, 255, 0.5);
+}
+
+.skills-panel {
+  position: absolute;
+  inset: 86px 24px 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.skills-card[data-skill-view='hard'] .skills-panel--hard,
+.skills-card[data-skill-view='soft'] .skills-panel--soft {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+  .skills-card {
+    min-height: 520px;
+    padding: 20px;
+  }
+
+  .skills-panel {
+    inset: 78px 20px 20px;
+  }
+}
+
 .skill-bar {
   width: 0%;
   transition: width 1.2s ease;
