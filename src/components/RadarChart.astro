@@ -93,17 +93,22 @@ const values = [88, 86, 90, 87, 84, 89, 85, 88];
       },
     });
 
-    const updateLang = () => {
-      const next = root.lang === 'en' ? 'en' : 'es';
-      chart.data.labels = next === 'en' ? JSON.parse(canvas.dataset.labelsEn) : JSON.parse(canvas.dataset.labelsEs);
-      chart.data.datasets[0].label = next === 'en' ? 'Soft Skills' : 'Habilidades blandas';
-      chart.update();
-    };
+  const updateLang = () => {
+    const next = root.lang === 'en' ? 'en' : 'es';
+    chart.data.labels = next === 'en' ? JSON.parse(canvas.dataset.labelsEn) : JSON.parse(canvas.dataset.labelsEs);
+    chart.data.datasets[0].label = next === 'en' ? 'Soft Skills' : 'Habilidades blandas';
+    chart.update();
+  };
 
-    window.addEventListener('languagechange', updateLang);
-    window.addEventListener('astro:languagechange', updateLang);
-    document.addEventListener('languagechange', updateLang);
-  }
+  const resizeChart = () => {
+    chart.resize();
+  };
+
+  window.addEventListener('languagechange', updateLang);
+  window.addEventListener('astro:languagechange', updateLang);
+  document.addEventListener('languagechange', updateLang);
+  document.addEventListener('radar:resize', resizeChart);
+}
 </script>
 
 <style>

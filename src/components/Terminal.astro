@@ -3,7 +3,7 @@ const lines = [
   { es: '> whoami', en: '> whoami' },
   { es: '> echo "Kevin Mata"', en: '> echo "Kevin Mata"' },
   { es: '> echo "Edad: 24"', en: '> echo "Age: 24"' },
-  { es: '> echo "Rol: Software Development Specialist"', en: '> echo "Role: Software Development Specialist"' },
+  { es: '> echo "Rol: Software Developer"', en: '> echo "Role: Software Developer"' },
   { es: '> echo "Ubicacion: Honduras"', en: '> echo "Location: Honduras"' },
   { es: '> echo "Email: kevinmatta26@gmail.com"', en: '> echo "Email: kevinmatta26@gmail.com"' },
 ];
@@ -42,7 +42,7 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
           data-commands-en={JSON.stringify(typingEn)}
           data-start-delay={`${lines.length * 250 + 600}`}
         ></span>
-        <span class="terminal-blink">_</span>
+        <span class="terminal-caret">_</span>
       </div>
     </div>
   </div>
@@ -214,13 +214,8 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
     min-width: 140px;
   }
 
-  .terminal-blink {
-    animation: blink 1s steps(2, start) infinite;
-  }
-
-  .terminal-cursor.is-typing .terminal-blink {
-    opacity: 0;
-    animation: none;
+  .terminal-caret {
+    opacity: 0.9;
   }
 
   @keyframes reveal {
@@ -240,16 +235,6 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
     }
   }
 
-  @keyframes blink {
-    0%,
-    40% {
-      opacity: 1;
-    }
-    60%,
-    100% {
-      opacity: 0;
-    }
-  }
 
   @media (max-width: 640px) {
     .terminal-body {
