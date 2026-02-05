@@ -64,6 +64,21 @@ const navItems = [
       const next = header.dataset.lang === 'es' ? 'en' : 'es';
       setLang(next);
     });
+
+    links.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const hash = link.getAttribute('href');
+        if (!hash || !hash.startsWith('#')) return;
+        const target = document.querySelector(hash);
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.setTimeout(() => {
+          target.classList.add('section-spotlight');
+          window.setTimeout(() => target.classList.remove('section-spotlight'), 1200);
+        }, 450);
+      });
+    });
   }
 </script>
 

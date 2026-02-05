@@ -20,7 +20,7 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
         <span class="dot dot-yellow"></span>
         <span class="dot dot-green"></span>
       </div>
-      <span class="terminal-title">astro-space://about</span>
+      <span class="terminal-title">kevin@portfolio:~</span>
     </div>
     <div class="terminal-body">
       {lines.map((line, index) => (
@@ -51,6 +51,7 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
 <script type="module">
   const root = document.documentElement;
   const typingNode = document.querySelector('.terminal-typing');
+  const cursorLine = document.querySelector('.terminal-cursor');
 
   if (typingNode) {
     let timers = [];
@@ -75,6 +76,10 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
       const loop = () => {
         const command = commands[commandIndex] || '';
         let charIndex = 0;
+        if (cursorLine) {
+          cursorLine.classList.add('is-typing');
+          cursorLine.classList.remove('is-paused');
+        }
 
         const typeNext = () => {
           if (charIndex <= command.length) {
@@ -84,6 +89,10 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
           } else {
             timers.push(
               setTimeout(() => {
+                if (cursorLine) {
+                  cursorLine.classList.remove('is-typing');
+                  cursorLine.classList.add('is-paused');
+                }
                 const erase = () => {
                   if (charIndex >= 0) {
                     typingNode.textContent = command.slice(0, charIndex);
@@ -91,6 +100,10 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
                     timers.push(setTimeout(erase, 30));
                   } else {
                     commandIndex = (commandIndex + 1) % commands.length;
+                    if (cursorLine) {
+                      cursorLine.classList.add('is-typing');
+                      cursorLine.classList.remove('is-paused');
+                    }
                     timers.push(setTimeout(loop, 260));
                   }
                 };
@@ -203,6 +216,11 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
 
   .terminal-blink {
     animation: blink 1s steps(2, start) infinite;
+  }
+
+  .terminal-cursor.is-typing .terminal-blink {
+    opacity: 0;
+    animation: none;
   }
 
   @keyframes reveal {

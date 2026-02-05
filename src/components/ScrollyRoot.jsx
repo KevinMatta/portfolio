@@ -7,10 +7,13 @@ export default function ScrollyRoot({ children }) {
   const block = 100 / count;
 
   return (
-    <Root start="top top" end="bottom bottom">
+    <Root start="top top" end="bottom bottom" scrub={0.6}>
       <div className="scrolly-root">
         <Parallax tween={{ start: 0, end: 100, movementY: { value: 60, unit: 'px' } }}>
           <div className="scrolly-grid" aria-hidden="true"></div>
+        </Parallax>
+        <Parallax tween={{ start: 0, end: 100, movementY: { value: -40, unit: 'px' } }}>
+          <div className="scrolly-glow" aria-hidden="true"></div>
         </Parallax>
         {items.map((child, index) => {
           const start = index * block;
@@ -21,8 +24,9 @@ export default function ScrollyRoot({ children }) {
               tween={{
                 start,
                 end,
-                from: { opacity: 0, y: 40 },
-                to: { opacity: 1, y: 0 },
+                from: { opacity: 0, y: 80, scale: 0.97 },
+                to: { opacity: 1, y: 0, scale: 1 },
+                ease: 'power2.out',
               }}
             >
               <div className="scrolly-section">{child}</div>
