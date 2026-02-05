@@ -118,9 +118,6 @@ main {
   overflow: hidden;
 }
 
-.about-block {
-  max-width: 620px;
-}
 
 .skills-toggle {
   display: inline-flex;

@@ -42,7 +42,6 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
           data-commands-en={JSON.stringify(typingEn)}
           data-start-delay={`${lines.length * 250 + 600}`}
         ></span>
-        <span class="terminal-caret">_</span>
       </div>
     </div>
   </div>
@@ -214,9 +213,6 @@ const typingEn = ['ls -la', 'cat mission.txt', 'echo "Ready to code"'];
     min-width: 140px;
   }
 
-  .terminal-caret {
-    opacity: 0.9;
-  }
 
   @keyframes reveal {
     to {

@@ -1,12 +1,15 @@
-import { tsParticles } from 'tsparticles';
+import { tsParticles } from '@tsparticles/engine';
+import { loadFull } from 'tsparticles';
 
 const targets = document.querySelectorAll('[data-stars]');
 
 if (targets.length) {
-  targets.forEach((target) => {
-    const canvasId = target.id;
-    if (!canvasId) return;
-    tsParticles.load({
+  const init = async () => {
+    await loadFull(tsParticles);
+    targets.forEach((target) => {
+      const canvasId = target.id;
+      if (!canvasId) return;
+      tsParticles.load({
       id: canvasId,
       options: {
         fullScreen: { enable: false },
@@ -44,6 +47,9 @@ if (targets.length) {
           },
         },
       },
+      });
     });
-  });
+  };
+
+  init();
 }

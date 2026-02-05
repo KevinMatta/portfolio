@@ -1,6 +1,7 @@
 import {
   Chart,
   RadialLinearScale,
+  RadarController,
   PointElement,
   LineElement,
   Filler,
@@ -8,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 
-Chart.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+Chart.register(RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
 const charts = new Map();
 
