@@ -22,7 +22,6 @@ const labelsEn = [
 ];
 
 const values = [88, 86, 80, 87, 84, 81, 85, 88];
-import radarScript from '../scripts/radar-chart.js?url';
 ---
 
 <div class="radar-card" data-i18n-wrapper>
@@ -37,7 +36,9 @@ import radarScript from '../scripts/radar-chart.js?url';
   ></canvas>
 </div>
 
-<script type="module" src={radarScript}></script>
+<script type="module">
+  import '../scripts/radar-chart.js';
+</script>
 
 <style>
   .radar-card {

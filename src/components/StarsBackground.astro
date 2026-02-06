@@ -1,10 +1,11 @@
 ---
 const { id = 'stars-canvas' } = Astro.props;
-import starsScript from '../scripts/stars.js?url';
 ---
 
 <canvas id={id} class="stars-canvas" aria-hidden="true" data-stars></canvas>
-<script type="module" src={starsScript}></script>
+<script type="module">
+  import '../scripts/stars.js';
+</script>
 
 <style>
   .stars-canvas {
