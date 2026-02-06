@@ -163,7 +163,7 @@ import TechPills from '../components/TechPills.astro';
 						</p>
 					</header>
 					<div class="grid gap-6">
-						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
+						<article class="flex h-full flex-col rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
 							<div class="flex flex-wrap items-center justify-between gap-3">
 								<h3 class="text-xl font-semibold text-white">Creative Information Technologies</h3>
 								<span
@@ -183,17 +183,19 @@ import TechPills from '../components/TechPills.astro';
 							>
 								Rol: Associative Software Developer
 							</p>
-							<TechPills items={['PostgreSQL', 'ASP.NET Core', 'Angular', 'Ionic', 'Docker']} />
 							<p
 								class="mt-3 text-sm text-slate-200/70"
 								data-i18n
-								data-es="Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores."
-								data-en="Full-stack modules, APIs, and mobile flows with containerized delivery."
+								data-es="Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores, cuidando mantenimiento de POS, ecommerce y reportes operativos."
+								data-en="Full-stack modules, APIs, and mobile flows with containerized delivery, owning upkeep for POS flows, ecommerce surfaces, and operational reporting."
 							>
-								Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores.
+								Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores, cuidando mantenimiento de POS, ecommerce y reportes operativos.
 							</p>
+							<div class="mt-auto">
+								<TechPills items={['PostgreSQL', 'ASP.NET Core', 'Angular', 'Ionic', 'Docker']} />
+							</div>
 						</article>
-						<article class="rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
+						<article class="flex h-full flex-col rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
 							<div class="flex flex-wrap items-center justify-between gap-3">
 								<h3
 									class="text-xl font-semibold text-white"
@@ -220,7 +222,6 @@ import TechPills from '../components/TechPills.astro';
 							>
 								Rol: Trainee Software Developer
 							</p>
-							<TechPills items={['SQL Server', 'ASP.NET Core', 'Angular', 'Flutter']} />
 							<p
 								class="mt-3 text-sm text-slate-200/70"
 								data-i18n
@@ -229,6 +230,9 @@ import TechPills from '../components/TechPills.astro';
 							>
 								Soporte a apps internas, reportes y automatizacion de procesos clave.
 							</p>
+							<div class="mt-auto">
+								<TechPills items={['SQL Server', 'ASP.NET Core', 'Angular', 'Flutter']} />
+							</div>
 						</article>
 					</div>
 				</section>
