@@ -15,13 +15,23 @@ Chart.register(RadarController, RadialLinearScale, PointElement, LineElement, Fi
 export default function RadarChartClient({ labels, labelsEn, values }) {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    if (!canvasRef.current) return undefined;
+    if (!canvasRef.current || !containerRef.current) return undefined;
 
     const root = document.documentElement;
     const getLang = () => (root.lang === 'en' ? 'en' : 'es');
     const currentLabels = getLang() === 'en' ? labelsEn : labels;
+    const syncCanvasSize = () => {
+      if (!canvasRef.current || !containerRef.current) return;
+      const { clientWidth, clientHeight } = containerRef.current;
+      if (clientWidth === 0 || clientHeight === 0) return;
+      canvasRef.current.width = clientWidth;
+      canvasRef.current.height = clientHeight;
+    };
+
+    syncCanvasSize();
 
     const chart = new Chart(canvasRef.current, {
       type: 'radar',
@@ -62,7 +72,11 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
     });
 
     chartRef.current = chart;
-    const raf = requestAnimationFrame(() => chart.resize());
+    const raf = requestAnimationFrame(() => {
+      syncCanvasSize();
+      chart.resize();
+      chart.update();
+    });
 
     const updateLang = () => {
       const next = getLang();
@@ -73,10 +87,16 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
 
     const resizeCharts = () => {
       requestAnimationFrame(() => {
+        syncCanvasSize();
         chart.resize();
         chart.update();
       });
     };
+
+    const observer = new ResizeObserver(() => {
+      resizeCharts();
+    });
+    observer.observe(containerRef.current);
 
     window.addEventListener('languagechange', updateLang);
     window.addEventListener('astro:languagechange', updateLang);
@@ -85,6 +105,7 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
 
     return () => {
       cancelAnimationFrame(raf);
+      observer.disconnect();
       window.removeEventListener('languagechange', updateLang);
       window.removeEventListener('astro:languagechange', updateLang);
       document.removeEventListener('languagechange', updateLang);
@@ -95,13 +116,15 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
   }, [labels, labelsEn, values]);
 
   return (
-    <canvas
-      id="soft-skills-radar"
-      aria-label="Soft skills radar chart"
-      role="img"
-      ref={canvasRef}
-      className="radar-canvas"
-      style={{ width: '100%', height: '100%', display: 'block' }}
-    />
+    <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+      <canvas
+        id="soft-skills-radar"
+        aria-label="Soft skills radar chart"
+        role="img"
+        ref={canvasRef}
+        className="radar-canvas"
+        style={{ width: '100%', height: '100%', display: 'block' }}
+      />
+    </div>
   );
 }
