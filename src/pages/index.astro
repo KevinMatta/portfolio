@@ -5,6 +5,7 @@ import Terminal from '../components/Terminal.astro';
 import StarsBackground from '../components/StarsBackground.astro';
 import ScrollyRoot from '../components/ScrollyRoot.jsx';
 import RadarChart from '../components/RadarChart.astro';
+import TechPills from '../components/TechPills.astro';
 ---
 
 <html lang="es">
@@ -182,14 +183,7 @@ import RadarChart from '../components/RadarChart.astro';
 							>
 								Rol: Associative Software Developer
 							</p>
-							<p
-								class="mt-2 text-sm text-slate-200/70"
-								data-i18n
-								data-es="Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker"
-								data-en="Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker"
-							>
-								Tech Stack: PostgreSQL, ASP.NET Core, Angular/Ionic, Docker
-							</p>
+							<TechPills items={['PostgreSQL', 'ASP.NET Core', 'Angular', 'Ionic', 'Docker']} />
 							<p
 								class="mt-3 text-sm text-slate-200/70"
 								data-i18n
@@ -226,14 +220,7 @@ import RadarChart from '../components/RadarChart.astro';
 							>
 								Rol: Trainee Software Developer
 							</p>
-							<p
-								class="mt-2 text-sm text-slate-200/70"
-								data-i18n
-								data-es="Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter"
-								data-en="Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter"
-							>
-								Tech Stack: SQL Server, ASP.NET Core, Angular, Flutter
-							</p>
+							<TechPills items={['SQL Server', 'ASP.NET Core', 'Angular', 'Flutter']} />
 							<p
 								class="mt-3 text-sm text-slate-200/70"
 								data-i18n

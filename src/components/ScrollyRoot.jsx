@@ -9,9 +9,9 @@ export default function ScrollyRoot({ children }) {
   return (
     <Root start="top top" end="bottom bottom" scrub={0.6}>
       <div className="scrolly-root">
-        <Parallax tween={{ start: 0, end: 100, movementY: { value: 60, unit: 'px' } }}>
+        {/* <Parallax tween={{ start: 0, end: 100, movementY: { value: 60, unit: 'px' } }}>
           <div className="scrolly-grid" aria-hidden="true"></div>
-        </Parallax>
+        </Parallax> */}
         <Parallax tween={{ start: 0, end: 100, movementY: { value: -40, unit: 'px' } }}>
           <div className="scrolly-glow" aria-hidden="true"></div>
         </Parallax>
