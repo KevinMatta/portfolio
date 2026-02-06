@@ -1,60 +1,4 @@
-<!DOCTYPE html><html lang="es"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.17.1"><title>Kevin Mata | Astro Space</title><link rel="stylesheet" href="/portfolio/_astro/index.jgR3aqnf.css"></head> <body class="min-h-screen"> <canvas id="hero-stars" class="stars-canvas" aria-hidden="true" data-stars data-astro-cid-snzrmqdh></canvas> <script type="module">
-  import { tsParticles } from '@tsparticles/engine';
-  import { loadFull } from 'tsparticles';
-
-  const targets = document.querySelectorAll('[data-stars]');
-
-  if (targets.length) {
-    const init = async () => {
-      await loadFull(tsParticles);
-      targets.forEach((target) => {
-        const canvasId = target.id;
-        if (!canvasId) return;
-        tsParticles.load({
-          id: canvasId,
-          options: {
-            fullScreen: { enable: false },
-            background: { color: 'transparent' },
-            detectRetina: true,
-            fpsLimit: 60,
-            interactivity: {
-              events: {
-                onHover: { enable: false },
-                onClick: { enable: false },
-                resize: true,
-              },
-            },
-            particles: {
-              color: { value: ['#7df9ff', '#8b5cff', '#ffffff'] },
-              links: { enable: false },
-              move: {
-                direction: 'none',
-                enable: true,
-                outModes: { default: 'out' },
-                speed: 0.18,
-                straight: false,
-              },
-              number: {
-                density: { enable: true, width: 900, height: 900 },
-                value: 110,
-              },
-              opacity: {
-                value: { min: 0.35, max: 0.85 },
-                animation: { enable: true, speed: 0.3, minimumValue: 0.2 },
-              },
-              shape: { type: 'circle' },
-              size: {
-                value: { min: 0.8, max: 2.1 },
-              },
-            },
-          },
-        });
-      });
-    };
-
-    init();
-  }
-</script>  <header class="site-header" data-lang="es" data-astro-cid-3ef6ksr2> <div class="site-header__inner" data-astro-cid-3ef6ksr2> <a class="site-logo" href="/" aria-label="Kevin Mata" data-astro-cid-3ef6ksr2> <span class="site-logo__glow" data-astro-cid-3ef6ksr2>KM</span> <span class="site-logo__text" data-astro-cid-3ef6ksr2>Kevin Mata</span> </a> <nav class="site-nav" aria-label="Primary" data-astro-cid-3ef6ksr2> <a class="site-nav__link" href="#about" data-es="Sobre mi" data-en="About" data-astro-cid-3ef6ksr2> Sobre mi </a><a class="site-nav__link" href="#studies" data-es="Estudios" data-en="Education" data-astro-cid-3ef6ksr2> Estudios </a><a class="site-nav__link" href="#experience" data-es="Experiencia" data-en="Experience" data-astro-cid-3ef6ksr2> Experiencia </a><a class="site-nav__link" href="#skills" data-es="Habilidades" data-en="Skills" data-astro-cid-3ef6ksr2> Habilidades </a><a class="site-nav__link" href="#projects" data-es="Proyectos" data-en="Projects" data-astro-cid-3ef6ksr2> Proyectos </a> </nav> <button class="lang-toggle" type="button" data-lang-toggle data-astro-cid-3ef6ksr2> <span class="lang-toggle__label" data-astro-cid-3ef6ksr2>ES</span> <span class="lang-toggle__track" aria-hidden="true" data-astro-cid-3ef6ksr2> <span class="lang-toggle__thumb" data-astro-cid-3ef6ksr2></span> </span> <span class="lang-toggle__label" data-astro-cid-3ef6ksr2>EN</span> </button> </div> </header> <script type="module">
+<!DOCTYPE html><html lang="es"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.17.1"><title>Kevin Mata | Astro Space</title><link rel="stylesheet" href="/portfolio/_astro/index.jgR3aqnf.css"></head> <body class="min-h-screen"> <canvas id="hero-stars" class="stars-canvas" aria-hidden="true" data-stars data-astro-cid-snzrmqdh></canvas> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z3sicB" prefix="r3" component-url="/portfolio/_astro/StarsClient.Be1S83wK.js" component-export="default" renderer-url="/portfolio/_astro/client.BgplVUld.js" props="{&quot;data-astro-cid-snzrmqdh&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;StarsClient&quot;,&quot;value&quot;:true}"></astro-island>  <header class="site-header" data-lang="es" data-astro-cid-3ef6ksr2> <div class="site-header__inner" data-astro-cid-3ef6ksr2> <a class="site-logo" href="/" aria-label="Kevin Mata" data-astro-cid-3ef6ksr2> <span class="site-logo__glow" data-astro-cid-3ef6ksr2>KM</span> <span class="site-logo__text" data-astro-cid-3ef6ksr2>Kevin Mata</span> </a> <nav class="site-nav" aria-label="Primary" data-astro-cid-3ef6ksr2> <a class="site-nav__link" href="#about" data-es="Sobre mi" data-en="About" data-astro-cid-3ef6ksr2> Sobre mi </a><a class="site-nav__link" href="#studies" data-es="Estudios" data-en="Education" data-astro-cid-3ef6ksr2> Estudios </a><a class="site-nav__link" href="#experience" data-es="Experiencia" data-en="Experience" data-astro-cid-3ef6ksr2> Experiencia </a><a class="site-nav__link" href="#skills" data-es="Habilidades" data-en="Skills" data-astro-cid-3ef6ksr2> Habilidades </a><a class="site-nav__link" href="#projects" data-es="Proyectos" data-en="Projects" data-astro-cid-3ef6ksr2> Proyectos </a> </nav> <button class="lang-toggle" type="button" data-lang-toggle data-astro-cid-3ef6ksr2> <span class="lang-toggle__label" data-astro-cid-3ef6ksr2>ES</span> <span class="lang-toggle__track" aria-hidden="true" data-astro-cid-3ef6ksr2> <span class="lang-toggle__thumb" data-astro-cid-3ef6ksr2></span> </span> <span class="lang-toggle__label" data-astro-cid-3ef6ksr2>EN</span> </button> </div> </header> <script type="module">
   const root = document.documentElement;
   const header = document.querySelector('.site-header');
   const toggle = document.querySelector('[data-lang-toggle]');
@@ -96,7 +40,7 @@
       });
     });
   }
-</script>  <main class="px-6 py-16 md:py-24"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="JxM7s" prefix="r1" component-url="/portfolio/_astro/ScrollyRoot.YLT0GQeo.js" component-export="default" renderer-url="/portfolio/_astro/client.BgplVUld.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollyRoot&quot;,&quot;value&quot;:true}" await-children><div class="scrolly-root"><div class="scrolly-glow" aria-hidden="true"></div><div class="scrolly-section"><astro-slot> <section class="cinema-section mx-auto flex max-w-5xl flex-col gap-10" id="about"> <header class="space-y-4"> <h1 class="text-4xl font-semibold text-white md:text-6xl">
+</script>  <main class="px-6 py-16 md:py-24"> <astro-island uid="1rI4Js" prefix="r5" component-url="/portfolio/_astro/ScrollyRoot.CJbAaLJ5.js" component-export="default" renderer-url="/portfolio/_astro/client.BgplVUld.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;ScrollyRoot&quot;,&quot;value&quot;:true}" await-children><div class="scrolly-root"><div class="scrolly-glow" aria-hidden="true"></div><div class="scrolly-section"><astro-slot> <section class="cinema-section mx-auto flex max-w-5xl flex-col gap-10" id="about"> <header class="space-y-4"> <h1 class="text-4xl font-semibold text-white md:text-6xl">
 Kevin Mata
 <span class="block text-lg font-medium text-cyan-200/80 md:text-2xl" data-i18n data-es="Software Developer" data-en="Software Developer">
 Software Developer
@@ -234,94 +178,7 @@ Mobile: Flutter, Ionic
 DevOps/Tools: Docker, Git/GitHub
 </p> <p data-i18n data-es="Base de datos: SQL Server, PostgreSQL" data-en="Databases: SQL Server, PostgreSQL">
 Base de datos: SQL Server, PostgreSQL
-</p> </div> <div class="space-y-3 pt-2"> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Backend" data-en="Backend">Backend</span> <span>90%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-cyan-200/80" data-skill-bar data-value="90"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Frontend" data-en="Frontend">Frontend</span> <span>85%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-pink-300/70" data-skill-bar data-value="85"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Mobile" data-en="Mobile">Mobile</span> <span>50%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-purple-300/70" data-skill-bar data-value="50"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="DevOps" data-en="DevOps">DevOps</span> <span>50%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-cyan-100/70" data-skill-bar data-value="50"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Base de datos" data-en="Databases">Base de datos</span> <span>88%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-emerald-200/70" data-skill-bar data-value="88"></div> </div> </div> </div> </div> </div> <div class="skills-panel skills-panel--soft"> <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"> <div class="grid gap-2 text-sm text-slate-200/70"> <span data-i18n data-es="Resolucion de problemas" data-en="Problem solving">Resolucion de problemas</span> <span data-i18n data-es="Autodidacta" data-en="Self-taught">Autodidacta</span> <span data-i18n data-es="Trabajo en equipo" data-en="Teamwork">Trabajo en equipo</span> <span data-i18n data-es="Responsabilidad" data-en="Responsibility">Responsabilidad</span> <span data-i18n data-es="Trabajo bajo presion" data-en="Work under pressure">Trabajo bajo presion</span> <span data-i18n data-es="Comunicacion efectiva" data-en="Effective communication">Comunicacion efectiva</span> <span data-i18n data-es="Adaptabilidad" data-en="Adaptability">Adaptabilidad</span> <span data-i18n data-es="Pensamiento analitico" data-en="Analytical thinking">Pensamiento analitico</span> </div> <div class="radar-card" data-i18n-wrapper data-astro-cid-jzeivsjr> <canvas id="soft-skills-radar" aria-label="Soft skills radar chart" role="img" data-radar data-labels-es="[&#34;Resolucion de problemas&#34;,&#34;Autodidacta&#34;,&#34;Trabajo en equipo&#34;,&#34;Responsabilidad&#34;,&#34;Trabajo bajo presion&#34;,&#34;Comunicacion efectiva&#34;,&#34;Adaptabilidad&#34;,&#34;Pensamiento analitico&#34;]" data-labels-en="[&#34;Problem solving&#34;,&#34;Self-taught&#34;,&#34;Teamwork&#34;,&#34;Responsibility&#34;,&#34;Work under pressure&#34;,&#34;Effective communication&#34;,&#34;Adaptability&#34;,&#34;Analytical thinking&#34;]" data-values="[88,86,80,87,84,81,85,88]" data-astro-cid-jzeivsjr></canvas> </div> <script type="module">
-  import {
-    Chart,
-    RadialLinearScale,
-    RadarController,
-    PointElement,
-    LineElement,
-    Filler,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-
-  Chart.register(RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
-
-  const charts = new Map();
-
-  const initChart = (canvas) => {
-    const root = document.documentElement;
-    const lang = root.lang === 'en' ? 'en' : 'es';
-    const labels = lang === 'en' ? JSON.parse(canvas.dataset.labelsEn) : JSON.parse(canvas.dataset.labelsEs);
-    const values = JSON.parse(canvas.dataset.values);
-
-    const chart = new Chart(canvas, {
-      type: 'radar',
-      data: {
-        labels,
-        datasets: [
-          {
-            label: lang === 'en' ? 'Soft Skills' : 'Habilidades blandas',
-            data: values,
-            backgroundColor: 'rgba(125, 249, 255, 0.18)',
-            borderColor: 'rgba(125, 249, 255, 0.8)',
-            pointBackgroundColor: '#7df9ff',
-            pointBorderColor: '#0b0f1a',
-            pointHoverBackgroundColor: '#ff59c7',
-            pointHoverBorderColor: '#ffffff',
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            angleLines: { color: 'rgba(125, 249, 255, 0.2)' },
-            grid: { color: 'rgba(125, 249, 255, 0.12)' },
-            pointLabels: { color: 'rgba(230, 241, 255, 0.8)', font: { size: 11 } },
-            ticks: { display: false },
-            suggestedMin: 0,
-            suggestedMax: 100,
-          },
-        },
-        plugins: {
-          legend: { display: false },
-          tooltip: { enabled: true },
-        },
-      },
-    });
-
-    charts.set(canvas, chart);
-  };
-
-  const updateLang = () => {
-    const root = document.documentElement;
-    charts.forEach((chart, canvas) => {
-      const next = root.lang === 'en' ? 'en' : 'es';
-      chart.data.labels = next === 'en' ? JSON.parse(canvas.dataset.labelsEn) : JSON.parse(canvas.dataset.labelsEs);
-      chart.data.datasets[0].label = next === 'en' ? 'Soft Skills' : 'Habilidades blandas';
-      chart.update();
-    });
-  };
-
-  const resizeCharts = () => {
-    charts.forEach((chart) => chart.resize());
-  };
-
-  const canvases = document.querySelectorAll('[data-radar]');
-  canvases.forEach((canvas) => {
-    if (charts.has(canvas)) return;
-    initChart(canvas);
-  });
-
-  window.addEventListener('languagechange', updateLang);
-  window.addEventListener('astro:languagechange', updateLang);
-  document.addEventListener('languagechange', updateLang);
-  document.addEventListener('radar:resize', resizeCharts);
-</script>  </div> </div> </div> </section> <section class="cinema-section mx-auto mt-24 max-w-5xl space-y-10" id="projects"> <header class="space-y-3"> <p class="text-xs uppercase tracking-[0.35em] text-cyan-200/70" data-i18n data-es="Proyectos" data-en="Projects">
+</p> </div> <div class="space-y-3 pt-2"> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Backend" data-en="Backend">Backend</span> <span>90%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-cyan-200/80" data-skill-bar data-value="90"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Frontend" data-en="Frontend">Frontend</span> <span>85%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-pink-300/70" data-skill-bar data-value="85"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Mobile" data-en="Mobile">Mobile</span> <span>50%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-purple-300/70" data-skill-bar data-value="50"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="DevOps" data-en="DevOps">DevOps</span> <span>50%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-cyan-100/70" data-skill-bar data-value="50"></div> </div> </div> <div> <div class="flex justify-between text-xs text-slate-200/70"> <span data-i18n data-es="Base de datos" data-en="Databases">Base de datos</span> <span>88%</span> </div> <div class="mt-1 h-2 w-full rounded-full bg-slate-800"> <div class="skill-bar h-2 rounded-full bg-emerald-200/70" data-skill-bar data-value="88"></div> </div> </div> </div> </div> </div> <div class="skills-panel skills-panel--soft"> <div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"> <div class="grid gap-2 text-sm text-slate-200/70"> <span data-i18n data-es="Resolucion de problemas" data-en="Problem solving">Resolucion de problemas</span> <span data-i18n data-es="Autodidacta" data-en="Self-taught">Autodidacta</span> <span data-i18n data-es="Trabajo en equipo" data-en="Teamwork">Trabajo en equipo</span> <span data-i18n data-es="Responsabilidad" data-en="Responsibility">Responsabilidad</span> <span data-i18n data-es="Trabajo bajo presion" data-en="Work under pressure">Trabajo bajo presion</span> <span data-i18n data-es="Comunicacion efectiva" data-en="Effective communication">Comunicacion efectiva</span> <span data-i18n data-es="Adaptabilidad" data-en="Adaptability">Adaptabilidad</span> <span data-i18n data-es="Pensamiento analitico" data-en="Analytical thinking">Pensamiento analitico</span> </div> <div class="radar-card" data-i18n-wrapper data-astro-cid-jzeivsjr> <astro-island uid="Ug1ro" prefix="r2" component-url="/portfolio/_astro/RadarChartClient.ozwXdVau.js" component-export="default" renderer-url="/portfolio/_astro/client.BgplVUld.js" props="{&quot;labels&quot;:[1,[[0,&quot;Resolucion de problemas&quot;],[0,&quot;Autodidacta&quot;],[0,&quot;Trabajo en equipo&quot;],[0,&quot;Responsabilidad&quot;],[0,&quot;Trabajo bajo presion&quot;],[0,&quot;Comunicacion efectiva&quot;],[0,&quot;Adaptabilidad&quot;],[0,&quot;Pensamiento analitico&quot;]]],&quot;labelsEn&quot;:[1,[[0,&quot;Problem solving&quot;],[0,&quot;Self-taught&quot;],[0,&quot;Teamwork&quot;],[0,&quot;Responsibility&quot;],[0,&quot;Work under pressure&quot;],[0,&quot;Effective communication&quot;],[0,&quot;Adaptability&quot;],[0,&quot;Analytical thinking&quot;]]],&quot;values&quot;:[1,[[0,88],[0,86],[0,80],[0,87],[0,84],[0,81],[0,85],[0,88]]],&quot;data-astro-cid-jzeivsjr&quot;:[0,true]}" ssr client="load" opts="{&quot;name&quot;:&quot;RadarChartClient&quot;,&quot;value&quot;:true}" await-children><canvas id="soft-skills-radar" aria-label="Soft skills radar chart" role="img"></canvas><!--astro:end--></astro-island> </div>  </div> </div> </div> </section> <section class="cinema-section mx-auto mt-24 max-w-5xl space-y-10" id="projects"> <header class="space-y-3"> <p class="text-xs uppercase tracking-[0.35em] text-cyan-200/70" data-i18n data-es="Proyectos" data-en="Projects">
 Proyectos
 </p> <h2 class="text-3xl font-semibold text-white md:text-4xl" data-i18n data-es="Proyectos en orbita" data-en="Projects in Orbit">
 Proyectos en orbita
