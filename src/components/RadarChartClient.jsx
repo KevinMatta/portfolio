@@ -62,6 +62,7 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
     });
 
     chartRef.current = chart;
+    const raf = requestAnimationFrame(() => chart.resize());
 
     const updateLang = () => {
       const next = getLang();
@@ -71,7 +72,10 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
     };
 
     const resizeCharts = () => {
-      chart.resize();
+      requestAnimationFrame(() => {
+        chart.resize();
+        chart.update();
+      });
     };
 
     window.addEventListener('languagechange', updateLang);
@@ -80,6 +84,7 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
     document.addEventListener('radar:resize', resizeCharts);
 
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener('languagechange', updateLang);
       window.removeEventListener('astro:languagechange', updateLang);
       document.removeEventListener('languagechange', updateLang);
@@ -89,5 +94,14 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
     };
   }, [labels, labelsEn, values]);
 
-  return <canvas id="soft-skills-radar" aria-label="Soft skills radar chart" role="img" ref={canvasRef} />;
+  return (
+    <canvas
+      id="soft-skills-radar"
+      aria-label="Soft skills radar chart"
+      role="img"
+      ref={canvasRef}
+      className="radar-canvas"
+      style={{ width: '100%', height: '100%', display: 'block' }}
+    />
+  );
 }
