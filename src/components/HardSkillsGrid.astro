@@ -1,0 +1,103 @@
+---
+const skills = [
+  { name: '.NET', logo: 'https://cdn.simpleicons.org/dotnet/7DF9FF' },
+  { name: 'SQL Server', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg', mono: true },
+  { name: 'PostgreSQL', logo: 'https://cdn.simpleicons.org/postgresql/7DF9FF' },
+  { name: 'MongoDB', logo: 'https://cdn.simpleicons.org/mongodb/7DF9FF' },
+  { name: 'Node.js', logo: 'https://cdn.simpleicons.org/nodedotjs/7DF9FF' },
+  { name: 'Python', logo: 'https://cdn.simpleicons.org/python/7DF9FF' },
+  { name: 'Angular', logo: 'https://cdn.simpleicons.org/angular/7DF9FF' },
+  { name: 'React', logo: 'https://cdn.simpleicons.org/react/7DF9FF' },
+  { name: 'jQuery', logo: 'https://cdn.simpleicons.org/jquery/7DF9FF' },
+  { name: 'Astro', logo: 'https://cdn.simpleicons.org/astro/7DF9FF' },
+  { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/7DF9FF' },
+  { name: 'HTML5', logo: 'https://cdn.simpleicons.org/html5/7DF9FF' },
+  { name: 'CSS3', logo: 'https://cdn.simpleicons.org/css/7DF9FF' },
+  { name: 'Sass', logo: 'https://cdn.simpleicons.org/sass/7DF9FF' },
+  { name: 'Tailwind', logo: 'https://cdn.simpleicons.org/tailwindcss/7DF9FF' },
+  { name: 'Bootstrap', logo: 'https://cdn.simpleicons.org/bootstrap/7DF9FF' },
+  { name: 'Flutter', logo: 'https://cdn.simpleicons.org/flutter/7DF9FF' },
+  { name: 'Ionic', logo: 'https://cdn.simpleicons.org/ionic/7DF9FF' },
+  { name: 'Docker', logo: 'https://cdn.simpleicons.org/docker/7DF9FF' },
+  { name: 'Linux', logo: 'https://cdn.simpleicons.org/linux/7DF9FF' },
+  { name: 'JWT', logo: 'https://cdn.simpleicons.org/jsonwebtokens/7DF9FF' },
+  { name: 'npm', logo: 'https://cdn.simpleicons.org/npm/7DF9FF' },
+  { name: 'pnpm', logo: 'https://cdn.simpleicons.org/pnpm/7DF9FF' },
+  { name: 'Bun', logo: 'https://cdn.simpleicons.org/bun/7DF9FF' },
+  { name: 'ESLint', logo: 'https://cdn.simpleicons.org/eslint/7DF9FF' },
+  { name: 'Git', logo: 'https://cdn.simpleicons.org/git/7DF9FF' },
+  { name: 'GitHub', logo: 'https://cdn.simpleicons.org/github/7DF9FF' },
+];
+---
+
+<div class="hard-skills-grid" role="list" aria-label="Hard skills">
+  {skills.map((skill) => (
+    <article class="hard-skill-item" role="listitem" aria-label={skill.name} title={skill.name}>
+      <span class="hard-skill-fallback" aria-hidden="true">{skill.name.slice(0, 1)}</span>
+      <img
+        src={skill.logo}
+        alt={`${skill.name} logo`}
+        loading="lazy"
+        decoding="async"
+        class:list={['hard-skill-icon', skill.mono && 'hard-skill-icon--mono']}
+        width="34"
+        height="34"
+        onerror="this.style.display='none'; this.previousElementSibling.style.display='grid';"
+      />
+    </article>
+  ))}
+</div>
+
+<style>
+  .hard-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    gap: 14px;
+  }
+
+  .hard-skill-item {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-inline: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(125, 249, 255, 0.28);
+    background: radial-gradient(circle at 40% 20%, rgba(125, 249, 255, 0.2), rgba(7, 12, 22, 0.9));
+    box-shadow: 0 0 0 rgba(125, 249, 255, 0);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .hard-skill-item:hover,
+  .hard-skill-item:focus-within {
+    transform: translateY(-3px);
+    border-color: rgba(125, 249, 255, 0.5);
+    box-shadow: 0 0 22px rgba(125, 249, 255, 0.2);
+  }
+
+  .hard-skill-fallback {
+    display: none;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(125, 249, 255, 0.4);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(230, 241, 255, 0.92);
+    background: rgba(10, 16, 30, 0.7);
+  }
+
+  .hard-skill-icon {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(125, 249, 255, 0.35));
+  }
+
+  .hard-skill-icon--mono {
+    filter:
+      brightness(0) saturate(100%) invert(84%) sepia(18%) saturate(1608%) hue-rotate(150deg) brightness(101%) contrast(101%)
+      drop-shadow(0 0 12px rgba(125, 249, 255, 0.35));
+  }
+</style>

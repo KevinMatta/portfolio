@@ -54,6 +54,7 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animation: false,
         scales: {
           r: {
             angleLines: { color: 'rgba(125, 249, 255, 0.2)' },
@@ -75,21 +76,21 @@ export default function RadarChartClient({ labels, labelsEn, values }) {
     const raf = requestAnimationFrame(() => {
       syncCanvasSize();
       chart.resize();
-      chart.update();
+      chart.update('none');
     });
 
     const updateLang = () => {
       const next = getLang();
       chart.data.labels = next === 'en' ? labelsEn : labels;
       chart.data.datasets[0].label = next === 'en' ? 'Soft Skills' : 'Habilidades blandas';
-      chart.update();
+      chart.update('none');
     };
 
     const resizeCharts = () => {
       requestAnimationFrame(() => {
         syncCanvasSize();
         chart.resize();
-        chart.update();
+        chart.update('none');
       });
     };
 

@@ -6,6 +6,7 @@ import StarsBackground from '../components/StarsBackground.astro';
 import ScrollyRoot from '../components/ScrollyRoot.jsx';
 import RadarChart from '../components/RadarChart.astro';
 import TechPills from '../components/TechPills.astro';
+import HardSkillsGrid from '../components/HardSkillsGrid.astro';
 ---
 
 <html lang="es">
@@ -192,7 +193,7 @@ import TechPills from '../components/TechPills.astro';
 								Desarrollo de modulos full-stack, APIs y flujos moviles con despliegue en contenedores, cuidando mantenimiento de POS, ecommerce y reportes operativos.
 							</p>
 							<div class="mt-auto">
-								<TechPills items={['PostgreSQL', 'ASP.NET Core', 'Angular', 'Ionic', 'Docker']} />
+								<TechPills items={['PostgreSQL', '.NET', 'Angular', 'Ionic', 'Docker']} />
 							</div>
 						</article>
 						<article class="flex h-full flex-col rounded-2xl border border-cyan-200/10 bg-slate-950/60 p-6 shadow-[0_20px_60px_rgba(2,4,16,0.45)]">
@@ -231,7 +232,7 @@ import TechPills from '../components/TechPills.astro';
 								Soporte a apps internas, reportes y automatizacion de procesos clave.
 							</p>
 							<div class="mt-auto">
-								<TechPills items={['SQL Server', 'ASP.NET Core', 'Angular', 'Flutter']} />
+								<TechPills items={['SQL Server', '.NET', 'Angular', 'Flutter']} />
 							</div>
 						</article>
 					</div>
@@ -274,76 +275,7 @@ import TechPills from '../components/TechPills.astro';
 							</button>
 						</div>
 						<div class="skills-panel skills-panel--hard">
-							<div class="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-								<div class="space-y-3 text-sm text-slate-200/70">
-									<p data-i18n data-es="Backend: C#, ASP.NET Core" data-en="Backend: C#, ASP.NET Core">
-										Backend: C#, ASP.NET Core
-									</p>
-									<p
-										data-i18n
-										data-es="Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap"
-										data-en="Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap"
-									>
-										Frontend: Angular, React, HTML5, CSS3, Tailwind, Bootstrap
-									</p>
-									<p data-i18n data-es="Mobile: Flutter, Ionic" data-en="Mobile: Flutter, Ionic">
-										Mobile: Flutter, Ionic
-									</p>
-									<p data-i18n data-es="DevOps/Tools: Docker, Git/GitHub" data-en="DevOps/Tools: Docker, Git/GitHub">
-										DevOps/Tools: Docker, Git/GitHub
-									</p>
-									<p data-i18n data-es="Base de datos: SQL Server, PostgreSQL" data-en="Databases: SQL Server, PostgreSQL">
-										Base de datos: SQL Server, PostgreSQL
-									</p>
-								</div>
-								<div class="space-y-3 pt-2">
-									<div>
-										<div class="flex justify-between text-xs text-slate-200/70">
-											<span data-i18n data-es="Backend" data-en="Backend">Backend</span>
-											<span>90%</span>
-										</div>
-										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-											<div class="skill-bar h-2 rounded-full bg-cyan-200/80" data-skill-bar data-value="90"></div>
-										</div>
-									</div>
-									<div>
-										<div class="flex justify-between text-xs text-slate-200/70">
-											<span data-i18n data-es="Frontend" data-en="Frontend">Frontend</span>
-											<span>85%</span>
-										</div>
-										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-											<div class="skill-bar h-2 rounded-full bg-pink-300/70" data-skill-bar data-value="85"></div>
-										</div>
-									</div>
-									<div>
-										<div class="flex justify-between text-xs text-slate-200/70">
-											<span data-i18n data-es="Mobile" data-en="Mobile">Mobile</span>
-											<span>50%</span>
-										</div>
-										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-											<div class="skill-bar h-2 rounded-full bg-purple-300/70" data-skill-bar data-value="50"></div>
-										</div>
-									</div>
-									<div>
-										<div class="flex justify-between text-xs text-slate-200/70">
-											<span data-i18n data-es="DevOps" data-en="DevOps">DevOps</span>
-											<span>50%</span>
-										</div>
-										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-											<div class="skill-bar h-2 rounded-full bg-cyan-100/70" data-skill-bar data-value="50"></div>
-										</div>
-									</div>
-									<div>
-										<div class="flex justify-between text-xs text-slate-200/70">
-											<span data-i18n data-es="Base de datos" data-en="Databases">Base de datos</span>
-											<span>88%</span>
-										</div>
-										<div class="mt-1 h-2 w-full rounded-full bg-slate-800">
-											<div class="skill-bar h-2 rounded-full bg-emerald-200/70" data-skill-bar data-value="88"></div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<HardSkillsGrid />
 						</div>
 						<div class="skills-panel skills-panel--soft">
 							<div class="grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
@@ -474,32 +406,15 @@ import TechPills from '../components/TechPills.astro';
 			</ScrollyRoot>
 
 			<script type="module">
-				const bars = document.querySelectorAll('[data-skill-bar]');
-				if (bars.length) {
-					const observer = new IntersectionObserver(
-						(entries, obs) => {
-							entries.forEach((entry) => {
-								if (!entry.isIntersecting) return;
-								const bar = entry.target;
-								const value = bar.dataset.value;
-								bar.style.width = `${value}%`;
-								bar.classList.add('is-visible');
-								obs.unobserve(bar);
-							});
-						},
-						{ threshold: 0.5 }
-					);
-
-					bars.forEach((bar) => observer.observe(bar));
-				}
-
 				const skillCard = document.querySelector('[data-skill-card]');
 				if (skillCard) {
 					const tabs = skillCard.querySelectorAll('[data-skill-tab]');
 					const setTab = (next) => {
 						skillCard.dataset.skillView = next;
 						tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.skillTab === next));
-						document.dispatchEvent(new Event('radar:resize'));
+						requestAnimationFrame(() => {
+							document.dispatchEvent(new Event('radar:resize'));
+						});
 					};
 					tabs.forEach((tab) => {
 						tab.addEventListener('click', () => setTab(tab.dataset.skillTab));
