@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/*
+  Paleta "Pizarra": gris pizarra medio, nunca negro puro, para que no canse la vista.
+  Un solo acento agresivo: ultramar claro.
+  Los mismos valores viven en src/lib/palette.ts para la escena WebGL.
+*/
+:root {
+  --paper: #2a2d36;
+  --paper-2: #343844;
+  --ink: #e6e7ec;
+  --ink-soft: #a3a8b8;
+  --accent: #8c93ff;
+  --accent-inv: #2f3bff;
+  --on-accent: #14172a;
+  --thermal: #eef0f3;
+  --thermal-ink: #1d2030;
+  --slant: -6deg;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-inv: var(--accent-inv);
+  --color-on-accent: var(--on-accent);
+  --color-thermal: var(--thermal);
+  --color-thermal-ink: var(--thermal-ink);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-martian);
+  --ease-slam: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* En una capa para que las utilidades de Tailwind puedan sobrescribirlas. */
+@layer components {
+  /* Titulares: Archivo comprimido al máximo. El ancho es un eje que animamos. */
+  .display {
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    font-weight: 900;
+    font-variation-settings: "wdth" 62;
+    line-height: 0.8;
+    letter-spacing: -0.01em;
+  }
+
+  .mono {
+    font-family: var(--font-martian), ui-monospace, monospace;
+    font-variation-settings: "wdth" 87.5;
+  }
+
+  /* Losa diagonal: la forma base de todas las transiciones. */
+  .slab {
+    clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
+  }
+
+  .receipt-edge {
+    --tooth: 10px;
+    mask:
+      conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+        50% / var(--tooth) 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes drip {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes slam {
+  from { transform: translateX(-14px) skewX(-14deg); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* La transición la anima slab-transition.ts; quitamos el fundido por defecto. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@keyframes rise {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/*
+  Entradas al hacer scroll: el contenido es visible por defecto; al entrar en
+  pantalla (clase "is-in", ver use-in-view.ts) sus hijos con .reveal entran de golpe.
+*/
+.is-in .reveal,
+.is-in.reveal {
+  animation: slam-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes slam-in {
+  from { transform: translateX(-6%) skewX(-12deg); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* Barras del ecualizador del botón de sonido. */
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.2); }
+  40% { transform: scaleY(1); }
+  70% { transform: scaleY(0.5); }
+}

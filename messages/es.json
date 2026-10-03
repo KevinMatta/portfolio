@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "Kevin Mata — Desarrollador de software",
+    "description": "Kevin Mata, desarrollador de software en San Pedro Sula, Honduras. Backend con .NET y Node.js, frontend con Angular y React, bases de datos e integraciones con IA. Software que sigue funcionando cuando algo falla.",
+    "ogAlt": "Kevin Mata, desarrollador de software",
+    "jobTitle": "Desarrollador de software"
+  },
+  "nav": {
+    "skip": "Saltar al contenido",
+    "steps": {
+      "begin": "Inicio",
+      "update": "Experiencia",
+      "exec": "Pruebas",
+      "select": "Herramientas",
+      "insert": "Proyectos",
+      "commit": "Contacto"
+    },
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "English",
+    "sound": "Sonido",
+    "soundOn": "Activar la música de fondo",
+    "gateTitle": "Entrar a la transacción",
+    "gateHint": "BEGIN TRANSACTION; — esta web tiene música",
+    "enterSound": "Entrar con sonido",
+    "enterMuted": "Entrar sin sonido",
+    "soundOff": "Silenciar la música de fondo"
+  },
+  "hero": {
+    "role": "Desarrollador de software en San Pedro Sula, Honduras",
+    "tagline": "Construyo software que sigue funcionando cuando algo falla.",
+    "hint": "Mueve el cursor para revelar el escritorio. Prueba a escribir.",
+    "scroll": "Baja para empezar",
+    "beats": {
+      "one": "Más de dos años con las manos en sistemas que mueven dinero de verdad.",
+      "two": "No me encierro en un stack: me adapto a lo que pida el problema y lo resuelvo con creatividad.",
+      "three": "Esto es lo que he construido, y cómo lo pienso."
+    }
+  },
+  "exec": {
+    "intro": "Prefiero enseñarte cómo pienso a contártelo. Tres problemas reales, en miniatura.",
+    "offline": {
+      "name": "Sin conexión",
+      "lead": "Una caja registradora no puede esperar al Wi-Fi. Corta la red y sigue vendiendo.",
+      "sell": "Vender",
+      "cut": "Cortar la red",
+      "restore": "Restaurar la red",
+      "online": "En línea",
+      "offline": "Sin red, guardando en el dispositivo",
+      "queued": "{count, plural, one {# venta en cola} other {# ventas en cola}}",
+      "synced": "{count, plural, one {# venta sincronizada} other {# ventas sincronizadas}}",
+      "empty": "Todavía no hay ventas. Vende algo.",
+      "sale": "Venta",
+      "pending": "en cola",
+      "done": "en servidor"
+    },
+    "idempotency": {
+      "name": "Doble cobro",
+      "lead": "Un cliente impaciente toca Pagar cinco veces. Se le cobra una.",
+      "pay": "Pagar $25.00",
+      "requests": "Peticiones recibidas",
+      "charges": "Cobros realizados",
+      "key": "Llave de idempotencia",
+      "reset": "Nueva compra",
+      "note": "La primera petición cobra. Las demás reciben la misma respuesta."
+    },
+    "atomic": {
+      "name": "Factura atómica",
+      "lead": "Una factura se guarda completa o no se guarda. Si una línea falla, no queda nada a medias.",
+      "useTx": "Usar transacción",
+      "fault": "Hacer fallar la línea 3",
+      "save": "Guardar factura",
+      "saving": "Guardando…",
+      "invoice": "Factura A-0042",
+      "line": "Línea {n}",
+      "outOfStock": "sin existencias",
+      "stored": "En la base: {count, plural, =0 {nada} one {# fila} other {# filas}}",
+      "commit": "Factura completa: encabezado y cuatro líneas.",
+      "rollback": "Se deshizo todo. Ni una fila a medias.",
+      "partial": "Quedó una factura a medias: el encabezado dice ${total} y las líneas guardadas suman ${sum}.",
+      "products": {
+        "coffee": "Café molido",
+        "bread": "Pan dulce",
+        "milk": "Leche",
+        "sugar": "Azúcar"
+      }
+    }
+  },
+  "select": {
+    "intro": "Mis herramientas no son una lista: son las capas por las que viaja una petición. Filtra una y mira por dónde pasa.",
+    "filters": {
+      "all": "todo",
+      "frontend": "frontend",
+      "backend": "backend",
+      "ai": "ai",
+      "data": "database",
+      "infra": "devops",
+      "flow": "tooling"
+    },
+    "columns": {
+      "tool": "herramienta",
+      "group": "capa"
+    },
+    "rows": "{count, plural, one {# fila} other {# filas}}",
+    "layers": {
+      "frontend": "Cliente",
+      "backend": "Servidor",
+      "ai": "IA",
+      "data": "Datos",
+      "infra": "Infra: todo corre aquí dentro",
+      "flow": "Cómo trabajo"
+    }
+  },
+  "insert": {
+    "intro": "Un proyecto publicado y dos espacios reservados. La transacción sigue abierta.",
+    "pending": "Pendiente",
+    "live": "Publicado",
+    "placeholderTitle": "Proyecto {n}",
+    "placeholderBody": "Lo estoy construyendo. Vuelve pronto.",
+    "visit": "Ver proyecto",
+    "code": "Ver código"
+  },
+  "commit": {
+    "lead": "Si llegaste hasta aquí, cerremos la transacción.",
+    "receipt": {
+      "store": "KEVIN MATA",
+      "city": "SAN PEDRO SULA, HN",
+      "ticket": "Ticket",
+      "time": "Tiempo en el sitio",
+      "keys": "Teclas presionadas",
+      "sales": "Ventas sin red",
+      "taps": "Toques a Pagar",
+      "charges": "Cobros reales",
+      "total": "Total",
+      "free": "$0.00",
+      "thanks": "Gracias por su visita",
+      "print": "Imprimir recibo",
+      "rollbacks": "Rollbacks"
+    },
+    "write": "Escribirme",
+    "copy": "Copiar correo",
+    "copied": "Correo copiado",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "cv": "Descargar CV"
+  },
+  "footer": {
+    "made": "Hecho en Honduras con Next.js, Three.js y GSAP."
+  },
+  "update": {
+    "intro": "Mi historial, como una fila que se va actualizando.",
+    "current": "En curso",
+    "sql": {
+      "role": "puesto",
+      "company": "empresa",
+      "since": "desde",
+      "until": "hasta"
+    },
+    "jobs": {
+      "cit": {
+        "role": "Associate Software Developer",
+        "company": "Creative Information Technologies (CIT)",
+        "period": "2025 — hoy",
+        "points": [
+          "Mantenimiento de un punto de venta con más de 150 usuarios y más de 10,000 transacciones diarias.",
+          "Desarrollo de soporte offline multidispositivo para seguir operando sin conexión.",
+          "Implementación de idempotencia y transacciones atómicas de encabezado y detalle en facturas y pedidos.",
+          "Desarrollo del backend de un e-commerce y de APIs REST con .NET.",
+          "Creación de servidores MCP y chatbots de IA que generan consultas SQL a partir de lenguaje natural."
+        ]
+      },
+      "ahm": {
+        "role": "Trainee Software Developer",
+        "company": "Asociación Hondureña de Maquiladores (AHM)",
+        "period": "2023 — 2024",
+        "points": [
+          "Desarrollo de un sistema de inventario e insumos con SQL Server.",
+          "Optimización del rendimiento de consultas mediante el diseño y ajuste de índices en SQL Server.",
+          "Construcción de APIs REST con .NET para aplicaciones internas.",
+          "Implementación de usuarios y permisos por roles en aplicaciones internas.",
+          "Creación de interfaces con Angular para la gestión de empleados."
+        ]
+      }
+    },
+    "present": "presente",
+    "duration": "{years, plural, =0 {} one {# año} other {# años}} {months, plural, =0 {} one {# mes} other {# meses}}"
+  }
+}

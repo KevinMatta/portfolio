@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "Kevin Mata — Software Developer",
+    "description": "Kevin Mata, software developer in San Pedro Sula, Honduras. Backend with .NET and Node.js, frontend with Angular and React, databases and AI integrations. Software that keeps working when something fails.",
+    "ogAlt": "Kevin Mata, software developer",
+    "jobTitle": "Software Developer"
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "steps": {
+      "begin": "Start",
+      "update": "Experience",
+      "exec": "Tests",
+      "select": "Tools",
+      "insert": "Projects",
+      "commit": "Contact"
+    },
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Español",
+    "sound": "Sound",
+    "soundOn": "Turn the background music on",
+    "gateTitle": "Enter the transaction",
+    "gateHint": "BEGIN TRANSACTION; — this site has music",
+    "enterSound": "Enter with sound",
+    "enterMuted": "Enter without sound",
+    "soundOff": "Mute the background music"
+  },
+  "hero": {
+    "role": "Software developer in San Pedro Sula, Honduras",
+    "tagline": "I build software that keeps working when something fails.",
+    "hint": "Move your cursor to reveal the desk. Try typing.",
+    "scroll": "Scroll to begin",
+    "beats": {
+      "one": "Two-plus years with my hands on systems that move real money.",
+      "two": "I don't lock myself into one stack: I adapt to whatever the problem needs and solve it creatively.",
+      "three": "This is what I've built, and how I think about it."
+    }
+  },
+  "exec": {
+    "intro": "I'd rather show you how I think than tell you. Three real problems, shrunk down.",
+    "offline": {
+      "name": "Offline",
+      "lead": "A cash register can't wait for the Wi-Fi. Cut the network and keep selling.",
+      "sell": "Sell",
+      "cut": "Cut the network",
+      "restore": "Restore the network",
+      "online": "Online",
+      "offline": "Offline, saving on the device",
+      "queued": "{count, plural, one {# sale queued} other {# sales queued}}",
+      "synced": "{count, plural, one {# sale synced} other {# sales synced}}",
+      "empty": "No sales yet. Sell something.",
+      "sale": "Sale",
+      "pending": "queued",
+      "done": "on server"
+    },
+    "idempotency": {
+      "name": "Double charge",
+      "lead": "An impatient customer taps Pay five times. They get charged once.",
+      "pay": "Pay $25.00",
+      "requests": "Requests received",
+      "charges": "Charges made",
+      "key": "Idempotency key",
+      "reset": "New purchase",
+      "note": "The first request charges. The rest get the same answer back."
+    },
+    "atomic": {
+      "name": "Atomic invoice",
+      "lead": "An invoice is saved whole or not at all. If one line fails, nothing is left half-written.",
+      "useTx": "Use a transaction",
+      "fault": "Make line 3 fail",
+      "save": "Save invoice",
+      "saving": "Saving…",
+      "invoice": "Invoice A-0042",
+      "line": "Line {n}",
+      "outOfStock": "out of stock",
+      "stored": "In the database: {count, plural, =0 {nothing} one {# row} other {# rows}}",
+      "commit": "Complete invoice: header and four lines.",
+      "rollback": "Everything was undone. Not a single half-written row.",
+      "partial": "A half-written invoice was left behind: the header says ${total} and the saved lines add up to ${sum}.",
+      "products": {
+        "coffee": "Ground coffee",
+        "bread": "Sweet bread",
+        "milk": "Milk",
+        "sugar": "Sugar"
+      }
+    }
+  },
+  "select": {
+    "intro": "My tools aren't a list: they're the layers a request travels through. Filter one and watch where it goes.",
+    "filters": {
+      "all": "all",
+      "frontend": "frontend",
+      "backend": "backend",
+      "ai": "ai",
+      "data": "database",
+      "infra": "devops",
+      "flow": "tooling"
+    },
+    "columns": {
+      "tool": "tool",
+      "group": "layer"
+    },
+    "rows": "{count, plural, one {# row} other {# rows}}",
+    "layers": {
+      "frontend": "Client",
+      "backend": "Server",
+      "ai": "AI",
+      "data": "Data",
+      "infra": "Infra: everything runs inside",
+      "flow": "How I work"
+    }
+  },
+  "insert": {
+    "intro": "One project live and two slots reserved. The transaction is still open.",
+    "pending": "Pending",
+    "live": "Live",
+    "placeholderTitle": "Project {n}",
+    "placeholderBody": "I'm building it. Check back soon.",
+    "visit": "View project",
+    "code": "View code"
+  },
+  "commit": {
+    "lead": "If you made it this far, let's close the transaction.",
+    "receipt": {
+      "store": "KEVIN MATA",
+      "city": "SAN PEDRO SULA, HN",
+      "ticket": "Ticket",
+      "time": "Time on site",
+      "keys": "Keys pressed",
+      "sales": "Offline sales",
+      "taps": "Taps on Pay",
+      "charges": "Actual charges",
+      "total": "Total",
+      "free": "$0.00",
+      "thanks": "Thank you for your visit",
+      "print": "Print receipt",
+      "rollbacks": "Rollbacks"
+    },
+    "write": "Email me",
+    "copy": "Copy email",
+    "copied": "Email copied",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "cv": "Download CV"
+  },
+  "footer": {
+    "made": "Made in Honduras with Next.js, Three.js and GSAP."
+  },
+  "update": {
+    "intro": "My record, as a row that keeps getting updated.",
+    "current": "Current",
+    "sql": {
+      "role": "role",
+      "company": "company",
+      "since": "since",
+      "until": "until"
+    },
+    "jobs": {
+      "cit": {
+        "role": "Associate Software Developer",
+        "company": "Creative Information Technologies (CIT)",
+        "period": "2025 — now",
+        "points": [
+          "Maintaining a point-of-sale system with 150+ users and 10,000+ daily transactions.",
+          "Developing offline, multi-device support so operations continue without connectivity.",
+          "Implementing idempotency and atomic header-and-detail transactions for invoices and orders.",
+          "Developing an e-commerce backend and REST APIs with .NET.",
+          "Building MCP servers and AI chatbots that generate SQL queries from natural language."
+        ]
+      },
+      "ahm": {
+        "role": "Trainee Software Developer",
+        "company": "Asociación Hondureña de Maquiladores (AHM)",
+        "period": "2023 — 2024",
+        "points": [
+          "Developed an inventory and supplies system with SQL Server.",
+          "Optimized query performance by designing and tuning SQL Server indexes.",
+          "Built REST APIs with .NET for internal applications.",
+          "Implemented role-based users and permissions in internal applications.",
+          "Created Angular interfaces for employee management."
+        ]
+      }
+    },
+    "present": "present",
+    "duration": "{years, plural, =0 {} one {# year} other {# years}} {months, plural, =0 {} one {# month} other {# months}}"
+  }
+}
