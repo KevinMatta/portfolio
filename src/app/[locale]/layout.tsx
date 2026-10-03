@@ -6,7 +6,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/providers";
 import { LocaleProvider } from "@/components/locale-provider";
-import { siteUrl } from "@/lib/site";
+import Script from "next/script";
+import { cfBeaconToken, siteUrl } from "@/lib/site";
 import { profile } from "@/content/profile";
 import "../globals.css";
 
@@ -107,6 +108,13 @@ export default async function LocaleLayout({
         <LocaleProvider initialLocale={locale}>
           <Providers>{children}</Providers>
         </LocaleProvider>
+        {process.env.NODE_ENV === "production" && cfBeaconToken && (
+          <Script
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            strategy="afterInteractive"
+            data-cf-beacon={JSON.stringify({ token: cfBeaconToken })}
+          />
+        )}
       </body>
     </html>
   );
